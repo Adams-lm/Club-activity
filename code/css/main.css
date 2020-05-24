@@ -1,0 +1,47 @@
+#header{
+    text-align: center;
+    margin-top:8%;
+}
+.calculate{
+    padding-top: 6%;
+    display:flex;
+    justify-content:center;
+}
+table{
+    width: 350px;
+    height: 550px;
+    color: #7C7C7C;
+    font-size: 3em;
+    table-layout: fixed;
+}
+td{
+    border: 1px solid #E4E4E4;
+    text-align: center;
+    cursor:pointer;
+}
+#result {
+    padding-right: 1rem;
+    text-align: right;
+}
+.operator{
+    background-color:#eee;
+    color:#77ACDF;
+}
+.operator:hover{
+    background-color:#E5E5E5;
+}
+
+.number{
+    background-color: #fff;
+}
+.number:hover{
+    background-color: #E5E5E5;
+}
+
+#equal{
+    background-color:#007DFE;
+    color:#fff;
+}
+#equal:hover{
+    background-color:#1972E8;
+}

@@ -1,2 +1,0 @@
-# Club-activity
-Web Project

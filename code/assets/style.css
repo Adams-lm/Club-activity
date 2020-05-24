@@ -1,0 +1,42 @@
+table{
+    border: 2px solid #333;
+}
+td{
+    width: 30%;
+    border-bottom: 1px dotted #333;
+}
+.tittle{
+    text-align: center;
+    border-bottom: 1px solid #333;
+    font-weight: bold;
+}   
+a{
+    display: flex;
+    width: 50px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    background: #333;
+    border-radius: 6px;
+}
+a:hover{
+    background-color: grey;
+}
+
+label{
+    float:right;
+}
+.page_link{
+    display: inline-block;
+    text-align:center;
+    width:30px;
+    height:30px;
+    line-height:30px;
+    margin-right:3px;
+    background: grey;
+}
+.page_link:hover{
+    background-color: orange;
+}
