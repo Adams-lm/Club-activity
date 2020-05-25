@@ -13,7 +13,7 @@
                 <td class='tittle'>密码</td>
                 <td colspan='2' class='tittle'>操作</td>
             </tr>
-            <tr>
+            <tr> 
                 <td colspan='3'><div id='chart' style="cursor:pointer">各部门人数统计</div></td>
             </tr>
         </thead>
