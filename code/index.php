@@ -5,7 +5,7 @@
     <title>home</title>
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
-<body>
+<body> 
     <table>
         <thead> 
             <tr>
