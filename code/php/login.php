@@ -25,8 +25,8 @@
     }
     else{
         if($row[2]==$password){
-            $_SESSION["userid"]=$row[0];
-            $_SESSION["username"]=$row[1];
+            $_SESSION["userId"]=$row[0];
+            $_SESSION["userName"]=$row[1];
             //用户界面
             if($identity=="user"){
                 $status=$row[3];
