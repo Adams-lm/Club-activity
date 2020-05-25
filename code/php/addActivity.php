@@ -7,9 +7,9 @@
     $image=$_POST["image"];
     include("conn.php");
 
-    $sql="INSERT INTO activity (act_name,content,start_time,end_time，image) VALUES (?,?,?,?,?);";
+    $sql="INSERT INTO activity (act_name,content,start_time,end_time,image) VALUES (?,?,?,?,?);";
     $stmt=mysqli_prepare($conn,$sql);
-    mysqli_stmt_bind_param($stmt,"ssss",$actName,$content,$startTime,$endTime,$image);
+    mysqli_stmt_bind_param($stmt,"sssss",$actName,$content,$startTime,$endTime,$image);
     mysqli_stmt_execute($stmt);
     if(mysqli_affected_rows($conn)>0){
         page_redirect(1,"","活动创建成功");

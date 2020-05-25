@@ -3,6 +3,8 @@
     $account=$_POST["account"];
     $username=$_POST["username"];
     $password=$_POST["password"];
+    $gender=$_POST["gender"];
+    $image=$_POST["image"];
     $password=hash("sha256", $password);
     include("conn.php");
     
@@ -11,13 +13,13 @@
     $rs=mysqli_query($conn,$sql2);
     while($row=mysqli_fetch_array($rs)){
         if($row[0]==$account){
-            page_redirect(1,"11","用户名重复！");
+            page_redirect(1,"","用户名重复！");
             die();
         }
     }
-    $sql="INSERT INTO user (account,user_name,password) VALUES (?,?,?);";
+    $sql="INSERT INTO user (account,user_name,password,gender,image) VALUES (?,?,?,?,?);";
     $stmt=mysqli_prepare($conn,$sql);
-    mysqli_stmt_bind_param($stmt,"sss",$account,$username,$password);
+    mysqli_stmt_bind_param($stmt,"sssss",$account,$username,$password,$gender,$image);
     mysqli_stmt_execute($stmt);
     if(mysqli_affected_rows($conn)>0){
         page_redirect(1,"","注册成功！");
