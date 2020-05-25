@@ -7,7 +7,7 @@
 </head>
 <body>
     <table>
-        <thead>
+        <thead> 
             <tr>
                 <td class='tittle'>用户名</td>
                 <td class='tittle'>密码</td>
