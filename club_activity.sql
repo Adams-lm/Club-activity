@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50562
 File Encoding         : 65001
 
-Date: 2020-05-24 10:54:08
+Date: 2020-05-25 20:21:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `activity` (
   `sign_up` tinyint(1) DEFAULT '1',
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`act_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of activity
@@ -166,7 +166,7 @@ CREATE TABLE `user` (
   `status` tinyint(1) NOT NULL DEFAULT '0',
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -207,8 +207,8 @@ CREATE TABLE `vip_buy` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `type` (`type`),
-  CONSTRAINT `vip_buy_ibfk_2` FOREIGN KEY (`type`) REFERENCES `vip` (`type`),
-  CONSTRAINT `vip_buy_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+  CONSTRAINT `vip_buy_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `vip_buy_ibfk_2` FOREIGN KEY (`type`) REFERENCES `vip` (`type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
