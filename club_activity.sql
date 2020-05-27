@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50562
 File Encoding         : 65001
 
-Date: 2020-05-25 20:21:47
+Date: 2020-05-28 00:19:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -91,7 +91,7 @@ CREATE TABLE `evaluate` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `act_id` int(3) NOT NULL,
   `user_id` int(3) NOT NULL,
-  `contend` text,
+  `content` text,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `conment_ibfk_1` (`act_id`),
@@ -145,7 +145,7 @@ CREATE TABLE `service_buy` (
   KEY `service_id` (`service_id`),
   CONSTRAINT `service_buy_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
   CONSTRAINT `service_buy_ibfk_2` FOREIGN KEY (`service_id`) REFERENCES `service` (`service_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of service_buy
@@ -166,15 +166,18 @@ CREATE TABLE `user` (
   `status` tinyint(1) NOT NULL DEFAULT '0',
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '123', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '买了服务包', '男', '0.00', '1', null);
+INSERT INTO `user` VALUES ('1', '123', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '买了服务包', '男', '2562.00', '1', null);
 INSERT INTO `user` VALUES ('2', '124', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '买了vip', '男', '0.00', '1', null);
 INSERT INTO `user` VALUES ('3', '125', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '什么都不买', '女', '0.00', '1', null);
 INSERT INTO `user` VALUES ('4', '126', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '还没报名成功的人', '女', '0.00', '1', null);
+INSERT INTO `user` VALUES ('5', 'ceshi1', '123', '测试1', '男', '0.00', '-1', null);
+INSERT INTO `user` VALUES ('6', 'ceshi2', '123', '测试2', '男', '0.00', '0', null);
+INSERT INTO `user` VALUES ('7', 'ceshi1', '123', '测试1', '男', '0.00', '-1', '');
 
 -- ----------------------------
 -- Table structure for vip
@@ -199,19 +202,15 @@ INSERT INTO `vip` VALUES ('12', '288.00');
 -- ----------------------------
 DROP TABLE IF EXISTS `vip_buy`;
 CREATE TABLE `vip_buy` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` tinyint(4) NOT NULL,
   `user_id` int(3) NOT NULL,
   `start_time` datetime NOT NULL,
   `end_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `type` (`type`),
-  CONSTRAINT `vip_buy_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `vip_buy_ibfk_2` FOREIGN KEY (`type`) REFERENCES `vip` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`user_id`),
+  CONSTRAINT `vip_buy_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of vip_buy
 -- ----------------------------
-INSERT INTO `vip_buy` VALUES ('1', '6', '2', '2020-05-23 15:26:06', '2020-11-23 15:26:16');
+INSERT INTO `vip_buy` VALUES ('1', '2020-05-26 14:11:01', '2021-05-26 14:11:01');
+INSERT INTO `vip_buy` VALUES ('2', '2020-05-26 13:48:49', '2020-11-26 13:48:49');
