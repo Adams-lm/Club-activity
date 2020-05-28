@@ -1,11 +1,22 @@
 <?php
-//还没考虑是否买过该服务
     include("functions.php");
     // session_start();
     // $userId=$_SESSION["userId"];
     $userId=$_GET["userId"];
     $serviceId=$_GET["serviceId"];
     include("conn.php");
+    $sql="SELECT id FROM service_buy WHERE user_id=?;";
+    $stmt=mysqli_prepare($conn,$sql);
+    mysqli_stmt_bind_param($stmt,"i",$userId);
+    mysqli_stmt_execute($stmt);
+    $rs=mysqli_stmt_get_result($stmt);
+    //若已订购过服务包
+    if($row=mysqli_fetch_array($rs)){
+        page_redirect(1,NULL,"您已购买过该服务包！！！"); 
+        die();
+
+    }
+
     //判断用户余额是否充足
     $sql1="SELECT (SELECT price from service where service_id = ?) <= balance FROM user where user_id = ?;";
     $stmt1=mysqli_prepare($conn,$sql1);
