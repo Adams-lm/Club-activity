@@ -1,6 +1,8 @@
 <?php
     include("functions.php");
-    $userId=$_GET["userId"];
+    session_start();
+    $userId=$_SESSION["userId"];
+    // $userId=$_GET["userId"];
     $status=1;
     include("conn.php");
     $sql="update user set status=? where user_id=?";

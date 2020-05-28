@@ -1,5 +1,6 @@
 <?php
     include("functions.php");
+    session_start();
     $userId=$_SESSION["userId"];
     $actId=$_GET["actId"];
     include("conn.php");

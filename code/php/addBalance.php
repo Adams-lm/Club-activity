@@ -1,6 +1,8 @@
 <?php
     include("functions.php");
-    $userId=$_POST["userId"];
+    session_start();
+    $userId=$_SESSION["userId"];
+    // $userId=$_POST["userId"];
     $money=$_POST["money"];
     include("conn.php");
     $sql="update user set balance=balance+? where user_id=?";
