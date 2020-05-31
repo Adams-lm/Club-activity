@@ -204,10 +204,11 @@
           status = "禁用";
         str += "<td>" + status + "</td>";
         if (item.is_ban == 0)
-          str += "<td>" + "<a class='btn btn-danger' href='../../../php/banService.php?serviceId="+ item.service_id +"'>"+"禁用"+"</a>";
+          str += "<td>" + "<a class='btn btn-warning' href='../../../php/banService.php?serviceId="+ item.service_id +"'>"+"禁用"+"</a>";
         else
           str += "<td>" + "<a class='btn btn-success' href='../../../php/banService.php?serviceId="+ item.service_id +"'>"+"解禁"+"</a>";
-        str += "&nbsp"+"<a class='btn btn-danger' href='../../../php/deleteService.php?serviceId="+ item.service_id +"'>"+"删除"+"</a>"+"</td>";
+        str += "&nbsp"+"<a class='btn btn-danger' href='../../../php/deleteService.php?serviceId="+ item.service_id +"'>"+"删除"+"</a>";
+        str += "</td>";
       });
       $("#list").html(str);
     });

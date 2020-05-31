@@ -68,9 +68,13 @@
         str += "<td>" + item.act_name + "</td>";
         str += "<td>" + item.start_time + "</td>";
         str += "<td>" + item.end_time + "</td>";
+        if(item.status=="下线")
+        str += "<td style='color:red;'>" + item.status + "</td>";
+        else
         str += "<td>" + item.status + "</td>";
-        str += "<td><a href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a></td>";
-        str += "</tr>";
+        str += "<td><a class='btn btn-primary' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a>";
+        str += "&nbsp"+"<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
+        str += "</td></tr>";
       });
       $("#list").html(str);
     });

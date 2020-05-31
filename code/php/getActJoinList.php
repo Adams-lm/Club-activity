@@ -1,13 +1,12 @@
 <?php
 //针对某个活动的报名情况，需要get传参
 include('conn.php');
-$actId=$_GET["actId"];
-$sql="select * from activity_join natural join user where act_id = ?";
-
-$stmt=mysqli_prepare($conn,$sql);
-mysqli_stmt_bind_param($stmt,"i",$actId);
-mysqli_stmt_execute($stmt);
-$rs=mysqli_stmt_get_result($stmt);
+$sql="select act_name,account,user_name,service_name,a.user_id,IF(end_time>NOW(),'VIP会员','普通用户')as is_vip from 
+( select act_name,`user`.user_id,account,user_name from  activity_join LEFT JOIN `user` ON activity_join.user_id=`user`.user_id LEFT JOIN activity ON activity_join.act_id=activity.act_id WHERE activity_join.`status`=0) as a 
+LEFT JOIN service_buy NATURAL JOIN service
+ON  a.user_id = service_buy.user_id LEFT JOIN vip_buy on a.user_id=vip_buy.user_id;
+";
+$rs=mysqli_query($conn,$sql);
 $arrs=[];
 while($row=mysqli_fetch_assoc($rs)){
     array_push($arrs,$row);

@@ -132,6 +132,9 @@
         str += "<td>" + item.act_name + "</td>";
         str += "<td>" + item.start_time + "</td>";
         str += "<td>" + item.end_time + "</td>";
+        if(item.status=="下线")
+        str += "<td style='color:red;'>" + item.status + "</td>";
+        else
         str += "<td>" + item.status + "</td>";
         str += "</tr>";
       });
