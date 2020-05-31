@@ -1,8 +1,7 @@
 <?php
-//针对某个活动的服务包，需要get传参
 include('conn.php');
-$actId=$_GET["actId"];
-$sql="select * from service where act_id = ?";
+$actId=$_POST["actId"];
+$sql="select * from service where act_id = ? order by is_ban asc";
 
 $stmt=mysqli_prepare($conn,$sql);
 mysqli_stmt_bind_param($stmt,"i",$actId);

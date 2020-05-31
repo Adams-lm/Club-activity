@@ -1,37 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>社团活动管理系统</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+  <title>社团活动管理系统</title>
 
-    <!-- Add custom CSS here -->
-    <link href="../css/sb-admin.css" rel="stylesheet"><!-- 侧边栏 -->
-    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css"><!-- icon_font -->
-    <!-- Page Specific CSS -->
-    <link rel="stylesheet" href="../css/morris-0.4.3.min.css">
-    <!-- sddr写的 -->
-    <link rel="stylesheet" href="../css/mystyle_index.css">
-  </head>
+  <!-- Bootstrap core CSS -->
+  <link href="../../../css/bootstrap.css" rel="stylesheet">
+  <!-- Add custom CSS here -->
+  <link href="../../../css/sb-admin.css" rel="stylesheet"><!-- 侧边栏 -->
+  <link rel="stylesheet" href="../../../fonts/font-awesome/css/font-awesome.min.css"><!-- icon_font -->
+  <!-- Page Specific CSS -->
+  <link rel="stylesheet" href="../../../css/morris-0.4.3.min.css">
+  <!-- sddr写的 -->
+  <link rel="stylesheet" href="../../../css/mystyle_index.css">
+  <!-- lm写的 -->
+  <link rel="stylesheet" href="../../../css/lm.css">
+</head>
 
-  <body>
-    
+<body>
+  <div class="table-responsive center">
+    <div class="border-media-col-md-10 col-md-10">
+      <table class="card table table-hover table-striped tablesorter">
+        <thead>
+          <tr>
+            <th class="center">活动名称 <i class="fa fa-sort"></i></th>
+            <th class="center">开始时间 <i class="fa fa-sort"></i></th>
+            <th class="center">结束时间 <i class="fa fa-sort"></i></th>
+            <th class="center">活动状态 <i class="fa fa-sort"></i></th>
+          </tr>
+        </thead>
+        <tbody id="list">
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-    <!-- JavaScript -->
-    <script src="../js/jquery-1.10.2.js"></script>
-    <script src="../js/bootstrap.js"></script>
+  <div class="col-md-10 ">
+    <button class="btn btn-primary right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      创建新的社团活动
+  </div>
+  <!-- 占行 -->
+  <div class="row bottom"></div>
 
-    <!-- Page Specific Plugins -->    <script src="js/raphael-min.js"></script>
-    <script src="../js/morris-0.4.3.min.js"></script>
-    <script src="../js/morris/chart-data-morris.js"></script>
-    <script src="../js/tablesorter/jquery.tablesorter.js"></script>
-    <script src="../js/tablesorter/tables.js"></script>
+  <div class="collapse" id="collapseExample">
+    <div class="col-md-10 ">
+      <div class="card box">
+        <div class="left">
+          <form class="form-horizontal" style='margin:15px auto' action="../../../php/addActivity.php" method="post">
+            <div class="form-group">
+              <label for="actName" class="col-md-3 control-label ">活动名称</label>
+              <div class="col-md-7">
+                <input type="text" class="form-control" id="actName" name="actName" placeholder="请输入活动名称">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="startTime" class="col-md-3 control-label">开始时间</label>
+              <div class="col-md-7">
+                <input type="datetime-local" class="form-control" id="startTime" name="startTime" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="endTime" class="col-md-3 control-label">结束时间</label>
+              <div class="col-md-7">
+                <input type="datetime-local" class="form-control" id="endTime" name="endTime" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="status" class="col-md-3 control-label">活动状态</label>
+              <div class="col-md-7" style="padding-top:6px">
+                <input type="radio" name="status" value="1" checked=checked>上线 &nbsp&nbsp&nbsp&nbsp
+                <input type="radio" name="status" value="0">下线
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="signUp" class="col-md-3 control-label">报名状态</label>
+              <div class="col-md-7" style="padding-top:6px">
+                <input type="radio" name="signUp" value="1" checked=checked>开始 &nbsp&nbsp&nbsp&nbsp
+                <input type="radio" name="signUp" value="0">结束
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="content" class="col-md-3 control-label">活动内容</label>
+              <div class="media-btn col-md-7" style="padding-top:7px">
+                <textarea class="form-control" rows="5" id="content" name="content"></textarea>
+                <br>
+                <div class="form-btn onlyright">
+                  <button type="submit" class="btn btn-success" id="submit">创建</button>
+                  <button type="reset" class="btn btn-default">取消</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="right">
+          <strong>活动照片</strong>
+          <label>
+            <img src="../../../upload/default.jfif" width="352px" height="191px" id="image" name="image">
+            <iframe src="upload.php" style="height:auto"></iframe>
+          </label>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- JavaScript -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="../../../js/bootstrap.js"></script>
 
-  </body>
+  <!-- Page Specific Plugins -->
+  <script src="../../../js/raphael-min.js"></script>
+  <script src="../../../js/morris-0.4.3.min.js"></script>
+  <script src="../../../js/morris/chart-data-morris.js"></script>
+  <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
+  <script src="../../../js/tablesorter/tables.js"></script>
+
+  <script type="text/javascript">
+    $.post("../../../php/getActivityList.php", "", function(data) {
+      result = $.parseJSON(data);
+      str = "";
+      $.each(result, function(index, item) {
+        if (item.status == 1) {
+          item.status = "上线";
+        } else {
+          item.status = "下线";
+        }
+        str += "<tr>";
+        str += "<td>" + item.act_name + "</td>";
+        str += "<td>" + item.start_time + "</td>";
+        str += "<td>" + item.end_time + "</td>";
+        str += "<td>" + item.status + "</td>";
+        str += "</tr>";
+      });
+      $("#list").html(str);
+    });
+  </script>
+
+</body>
+
 </html>

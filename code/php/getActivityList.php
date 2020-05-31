@@ -1,7 +1,7 @@
 <?php
 include('conn.php');
 
-$sql="select * from activity";
+$sql="select * from activity order by start_time asc";
 
 $rs=mysqli_query($conn,$sql);
 $arrs=[];

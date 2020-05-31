@@ -10,7 +10,7 @@
     mysqli_stmt_bind_param($stmt,"siss",$serviceName,$actId,$price,$content);
     mysqli_stmt_execute($stmt);
     if(mysqli_affected_rows($conn)>0){
-        page_redirect(1,"","服务包添加成功！");
+        page_redirect(0,"","服务包添加成功！");
     }
     else{
         page_redirect(1,"","服务包添加失败！请输入正确的价格！！！");
