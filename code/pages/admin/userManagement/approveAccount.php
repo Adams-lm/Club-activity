@@ -40,6 +40,12 @@
     </div>
   </div>
 
+  <div class="col-md-10 " id="approve">
+    <a href="../../../php/approveAllAccount.php" class="btn btn-primary right">一键通过</a>
+  </div>
+  <!-- 占行 -->
+  <div class="row bottom"></div>
+
   
   <!-- JavaScript -->
   <script src="../../../js/jquery-1.10.2.js"></script>
@@ -53,6 +59,8 @@
     $.post("../../../php/getUser0List.php", "", function(data) {
       result = $.parseJSON(data);
       str = "";
+      console.log(data);
+      if(data!="[]"){
       $.each(result, function(index, item) {
         str += "<tr>";
         str += "<td>"+"<img src='"+item.image+ "' width='50' height='50' alt=''>"+"</td>"
@@ -65,8 +73,14 @@
         str += "</td>";
         str += "</tr>";
       });
+    }else{
+      str = "<td colspan='5'><div class=' alert-success center' >没有需要审批的用户 </td></div>"
+      $("#approve").hide();
+    }
       $("#list").html(str);
+
     });
+    
   </script>
 </body>
 

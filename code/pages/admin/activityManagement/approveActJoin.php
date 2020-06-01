@@ -40,7 +40,9 @@
       </table>
     </div>
   </div>
-
+  <div class="col-md-10 " id="approve">
+    <a href="../../../php/approveAllActJoin.php" class="btn btn-primary right">一键通过</a>
+  </div>
   
   <!-- JavaScript -->
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -56,6 +58,7 @@
     $.post("../../../php/getActjoinList.php", "", function(data) {
       result = $.parseJSON(data);
       str = "";
+      if(data!="[]"){
       $.each(result, function(index, item) {
         str += "<tr>";
         str += "<td>" + item.user_name + "</td>";
@@ -70,6 +73,10 @@
         str += "</td>";
         str += "</tr>";
       });
+    }else{
+      str = "<td colspan='6'><div class=' alert-success center' >没有需要审批的报名申请 </td></div>"
+      $("#approve").hide();
+    }
       $("#list").html(str);
     });
   </script>
