@@ -1,8 +1,8 @@
 <?php
 include('conn.php');
 
-//申请中的在上，禁用的在下
-$sql="select * from user where status != 1 order by status desc";
+//申请中的
+$sql="select * from user where status=0";
 
 $rs=mysqli_query($conn,$sql);
 $arrs=[];

@@ -16,7 +16,6 @@
   <link href="../../../css/sb-admin.css" rel="stylesheet"><!-- 侧边栏 -->
   <link rel="stylesheet" href="../../../fonts/font-awesome/css/font-awesome.min.css"><!-- icon_font -->
   <!-- Page Specific CSS -->
-  <link rel="stylesheet" href="../../../css/morris-0.4.3.min.css">
   <!-- sddr写的 -->
   <link rel="stylesheet" href="../../../css/mystyle_index.css">
   <!-- lm写的 -->
@@ -49,10 +48,7 @@
 
   <!-- Page Specific Plugins -->
   <script src="../../../js/raphael-min.js"></script>
-  <script src="../../../js/morris-0.4.3.min.js"></script>
-  <script src="../../../js/morris/chart-data-morris.js"></script>
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
-  <script src="../../../js/tablesorter/tables.js"></script>
 
   <script type="text/javascript">
     $.post("../../../php/getActivityList.php", "", function(data) {
@@ -61,23 +57,29 @@
       $.each(result, function(index, item) {
         if (item.status == 1) {
           item.status = "上线";
+          str += "<tr>";
+          str += "<td>" + item.act_name + "</td>";
+          str += "<td>" + item.start_time + "</td>";
+          str += "<td>" + item.end_time + "</td>";
+          str += "<td>" + item.status + "</td>";
+          str += "<td><a class='btn btn-primary' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a>";
+          str += "&nbsp"+"<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
+          str += "</tr>";
         } else {
-          item.status = "下线";
+          item.status = "已下线";
+          str += "<tr class='danger'>";
+          str += "<td>" + item.act_name + "</td>";
+          str += "<td>" + item.start_time + "</td>";
+          str += "<td>" + item.end_time + "</td>";
+          str += "<td>" + item.status + "</td>";
+          str += "<td><a class='btn btn-primary' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a>";
+          str += "&nbsp"+"<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
+          str += "</tr>";
         }
-        str += "<tr>";
-        str += "<td>" + item.act_name + "</td>";
-        str += "<td>" + item.start_time + "</td>";
-        str += "<td>" + item.end_time + "</td>";
-        if(item.status=="下线")
-        str += "<td style='color:red;'>" + item.status + "</td>";
-        else
-        str += "<td>" + item.status + "</td>";
-        str += "<td><a class='btn btn-primary' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a>";
-        str += "&nbsp"+"<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
-        str += "</td></tr>";
       });
       $("#list").html(str);
     });
+
   </script>
 </body>
 

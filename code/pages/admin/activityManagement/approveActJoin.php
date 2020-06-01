@@ -14,8 +14,6 @@
   <!-- Add custom CSS here -->
   <link href="../../../css/sb-admin.css" rel="stylesheet"><!-- 侧边栏 -->
   <link rel="stylesheet" href="../../../fonts/font-awesome/css/font-awesome.min.css"><!-- icon_font -->
-  <!-- Page Specific CSS -->
-  <link rel="stylesheet" href="../../../css/morris-0.4.3.min.css">
   <!-- sddr写的 -->
   <link rel="stylesheet" href="../../../css/mystyle_index.css">
     <!-- lm写的 -->
@@ -45,17 +43,16 @@
 
   
   <!-- JavaScript -->
-  <script src="../../../js/jquery-1.10.2.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="../../../js/bootstrap.js"></script>
 
   <!-- Page Specific Plugins -->
   <script src="../../../js/raphael-min.js"></script>
-  <script src="../../../js/morris-0.4.3.min.js"></script>
-  <script src="../../../js/morris/chart-data-morris.js"></script>
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
   <script src="../../../js/tablesorter/tables.js"></script>
 
-  <script type="text/javascript">
+
+  <script type="text/javascript">    
     $.post("../../../php/getActjoinList.php", "", function(data) {
       result = $.parseJSON(data);
       str = "";

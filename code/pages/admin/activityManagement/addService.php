@@ -14,8 +14,6 @@
   <!-- Add custom CSS here -->
   <link href="../../../css/sb-admin.css" rel="stylesheet"><!-- 侧边栏 -->
   <link rel="stylesheet" href="../../../fonts/font-awesome/css/font-awesome.min.css"><!-- icon_font -->
-  <!-- Page Specific CSS -->
-  <link rel="stylesheet" href="../../../css/morris-0.4.3.min.css">
   <!-- sddr写的 -->
   <link rel="stylesheet" href="../../../css/mystyle_index.css">
   <!-- lm写的 -->
@@ -26,6 +24,7 @@
   <h3 class="box2">活动信息修改</h3>
   <hr>
   <?php
+  //处理时间，datetime-local格式中间为T，需要自行处理
   function Grade($time)
   {
     $newTime = explode(' ', $time);
@@ -67,21 +66,33 @@
             <div class="form-group">
               <label for="status" class="col-md-3 control-label">活动状态</label>
               <div class="col-md-7" style="padding-top:6px">
-                <input type="radio" name="status" value="1" checked="checked">上线 &nbsp&nbsp&nbsp&nbsp
-                <input type="radio" name="status" value="0">下线
+              <?php 
+              if($row['status']==1){
+                echo"<input type='radio' id='status'name='status' value='1' checked='checked'>上线 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='status' value='0'>下线";
+              }
+              else{
+                echo"<input type='radio' id='status' name='status' value='1'>上线 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='status' value='0'  checked='checked'>下线";
+              }
+              ?>
               </div>
             </div>
             <div class="form-group">
               <label for="signUp" class="col-md-3 control-label">报名状态</label>
               <div class="col-md-7" style="padding-top:6px">
-                <input type="radio" name="signUp" value="1" checked="checked">开始 &nbsp&nbsp&nbsp&nbsp
-                <input type="radio" name="signUp" value="0">结束
+              <?php 
+              if($row['sign_up']==1){
+                echo"<input type='radio' id='signUp' name='signUp' value='1' checked='checked'>开始 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='signUp' value='0'>结束";
+              }
+              else{
+                echo"<input type='radio' id='signUp' name='signUp' value='1'>开始 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='signUp' value='0'  checked='checked'>结束";
+              }
+              ?>
               </div>
             </div>
             <div class="form-group">
               <label for="content" class="col-md-3 control-label">活动内容</label>
               <div class="media-btn col-md-7" style="padding-top:7px">
-                <textarea class="form-control" rows="5" id="content" name="content" value="<?php echo $row[2]; ?>"></textarea>
+                <textarea class="form-control" rows="5" id="content" name="content" ><?php echo $row['content']; ?></textarea>
                 <br>
                 <div class="form-btn onlyright">
                   <button type="submit" class="btn btn-success" id="submit">修改</button>
@@ -183,32 +194,40 @@
 
   <!-- Page Specific Plugins -->
   <script src="../../../js/raphael-min.js"></script>
-  <script src="../../../js/morris-0.4.3.min.js"></script>
-  <script src="../../../js/morris/chart-data-morris.js"></script>
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
   <script src="../../../js/tablesorter/tables.js"></script>
 
   <script type="text/javascript">
     var actId = document.getElementById("hidden").value;
-    $.post("../../../php/getServiceList.php?", {actId: actId}, function(data) {
+    $.post("../../../php/getServiceList.php?", {
+      actId: actId
+    }, function(data) {
       result = $.parseJSON(data);
       str = "";
       $.each(result, function(index, item) {
-        str += "<tr>";
-        str += "<td>" + item.service_name + "</td>";
-        str += "<td>" + item.price + "</td>";
-        str += "<td>" + item.content + "</td>";
-        if (item.is_ban == "0")
-          var status = "正常";
-        else
-          status = "禁用";
-        str += "<td>" + status + "</td>";
-        if (item.is_ban == 0)
-          str += "<td>" + "<a class='btn btn-warning' href='../../../php/banService.php?serviceId="+ item.service_id +"'>"+"禁用"+"</a>";
-        else
-          str += "<td>" + "<a class='btn btn-success' href='../../../php/banService.php?serviceId="+ item.service_id +"'>"+"解禁"+"</a>";
-        str += "&nbsp"+"<a class='btn btn-danger' href='../../../php/deleteService.php?serviceId="+ item.service_id +"'>"+"删除"+"</a>";
-        str += "</td>";
+        var status = "";
+        if (item.is_ban == "0"){
+          status = "正常";
+          str += "<tr>";
+          str += "<td>" + item.service_name + "</td>";
+          str += "<td>" + item.price + "</td>";
+          str += "<td>" + item.content + "</td>";
+          str += "<td>" + status + "</td>";
+          str += "<td>" + "<a class='btn btn-warning' href='../../../php/banService.php?serviceId=" + item.service_id + "'>" + "禁用" + "</a>";
+          str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/deleteService.php?serviceId=" + item.service_id + "'>" + "删除" + "</a>";
+          str += "</td>";
+        }
+        else{
+          status = "禁用中";
+          str += "<tr class='danger'>";
+          str += "<td>" + item.service_name + "</td>";
+          str += "<td>" + item.price + "</td>";
+          str += "<td>" + item.content + "</td>";
+          str += "<td>" + status + "</td>";
+          str += "<td>" + "<a class='btn btn-success' href='../../../php/banService.php?serviceId=" + item.service_id + "'>" + "解禁" + "</a>";
+          str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/deleteService.php?serviceId=" + item.service_id + "'>" + "删除" + "</a>";
+          str += "</td>";
+        }
       });
       $("#list").html(str);
     });

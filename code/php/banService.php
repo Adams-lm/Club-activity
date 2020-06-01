@@ -2,7 +2,6 @@
     include("conn.php");
     include("functions.php");
     $serviceId=$_GET["serviceId"];
-    echo $serviceId;
     //改变 is_ban 非1即0
     $sql="update service set is_ban=(is_ban-1)*(-1) where service_id=?";
     $stmt=mysqli_prepare($conn,$sql);
