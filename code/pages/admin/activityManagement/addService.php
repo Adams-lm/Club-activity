@@ -21,9 +21,7 @@
 </head>
 
 <body>
-  <h3 class="box2">活动信息修改</h3>
-  <hr>
-  <?php
+<?php
   //处理时间，datetime-local格式中间为T，需要自行处理
   function Grade($time)
   {
@@ -33,13 +31,60 @@
   }
   include "../../../php/conn.php";
   $actId = $_GET["actId"];
-  $sql = "select * from activity where act_id = $actId";
+  $sql = "select *, (NOW()-start_time)/(end_time-start_time)*100 as percent,end_time<NOW() as end,start_time<NOW() as ready from activity where act_id = $actId";
   $row = mysqli_fetch_array(mysqli_query($conn, $sql));
   $row['start_time'] = Grade($row['start_time']);
   $row['end_time'] = Grade($row['end_time']);
-
   ?>
-  <div>
+
+<!-- 活动时间进度条 -->
+<div class="col-md-10">
+  <!-- 在线 -->
+<?php if($row['status']==1){
+// 已结束
+  if($row['end']==1){
+    echo "<h3 id='progress-animated'>活动已结束</h3>
+    <div class='bs-example'>
+      <div class='progress progress-striped active'>
+        <div class='progress-bar ' style='width: 100%'></div>
+      </div>
+    </div>";
+  }
+  //上线
+  else{
+    //进行中
+    if($row['ready']==1)
+  echo "<h3 id='progress-animated'>活动进行中</h3>
+    <div class='bs-example'>
+      <div class='progress progress-striped active'>
+        <div class='progress-bar progress-bar-success' style='width: $row[percent]%'></div>
+      </div>
+    </div>";
+    else{
+      echo "<h3 id='progress-animated'>活动未开始</h3>
+        <div class='bs-example'>
+          <div class='progress progress-striped active'>
+            <div class='progress-bar  progress-bar-warning' style='width: 100%'></div>
+          </div>
+        </div>";
+    }
+  }
+  //已下线
+}else{
+  echo "<h3 id='progress-animated'>活动已下线</h3>
+    <div class='bs-example'>
+      <div class='progress progress-striped active'>
+        <div class='progress-bar progress-bar-danger' style='width: 100%'></div>
+      </div>
+    </div>";
+  }
+?>
+  </div>
+
+  <div class="col-md-10">
+  <h3>活动信息修改</h3>
+  </div>
+
     <div class="col-md-10">
       <div class="card box">
         <div class="left">
@@ -111,14 +156,15 @@
         </form>
       </div>
     </div>
-  </div>
 
-  <!-- 占行 -->
-  <div class="row bottom"></div>
 
   <div>
-    <h3 class="box2">服务包管理</h3>
-    <hr>
+    <div class="col-md-10">
+    <h3  >服务包管理</h3>
+    </div>
+      <!-- 占行 -->
+  <div class="row"></div>
+
     <div class="table-responsive center">
       <div class="border-media-col-md-10 col-md-10">
         <table class="card table table-hover table-striped tablesorter">
@@ -195,7 +241,6 @@
   <!-- Page Specific Plugins -->
   <script src="../../../js/raphael-min.js"></script>
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
-  <script src="../../../js/tablesorter/tables.js"></script>
 
   <script type="text/javascript">
     var actId = document.getElementById("hidden").value;

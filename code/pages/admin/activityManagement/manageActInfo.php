@@ -55,31 +55,39 @@
       result = $.parseJSON(data);
       str = "";
       $.each(result, function(index, item) {
+        //在线
         if (item.status == 1) {
-          item.status = "上线";
-          str += "<tr>";
-          str += "<td>" + item.act_name + "</td>";
-          str += "<td>" + item.start_time + "</td>";
-          str += "<td>" + item.end_time + "</td>";
-          str += "<td>" + item.status + "</td>";
-          str += "<td><a class='btn btn-primary' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a>";
-          str += "&nbsp"+"<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
-          str += "</tr>";
+          //已结束
+          if (item.end == 1) {
+            item.status = "已结束";
+            str += "<tr>";
+          } else {
+            //进行中
+            //已开始
+            if (item.ready == 1) {
+              item.status = "进行中";
+              str += "<tr class='success'>";
+            } else {
+              item.status = "未开始";
+              str += "<tr class='warning'>";
+            }
+
+          }
         } else {
+          //下线
           item.status = "已下线";
           str += "<tr class='danger'>";
-          str += "<td>" + item.act_name + "</td>";
-          str += "<td>" + item.start_time + "</td>";
-          str += "<td>" + item.end_time + "</td>";
-          str += "<td>" + item.status + "</td>";
-          str += "<td><a class='btn btn-primary' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a>";
-          str += "&nbsp"+"<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
-          str += "</tr>";
         }
+        str += "<td>" + item.act_name + "</td>";
+        str += "<td>" + item.start_time + "</td>";
+        str += "<td>" + item.end_time + "</td>";
+        str += "<td>" + item.status + "</td>";
+        str += "<td><a class='btn btn-primary' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a>";
+        str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
+        str += "</tr>";
       });
       $("#list").html(str);
     });
-
   </script>
 </body>
 

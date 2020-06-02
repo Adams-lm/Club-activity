@@ -119,23 +119,34 @@
       result = $.parseJSON(data);
       str = "";
       $.each(result, function(index, item) {
+        //在线
         if (item.status == 1) {
-          item.status = "上线";
-          str += "<tr>";
-          str += "<td>" + item.act_name + "</td>";
-          str += "<td>" + item.start_time + "</td>";
-          str += "<td>" + item.end_time + "</td>";
-          str += "<td>" + item.status + "</td>";
-          str += "</tr>";
+          //已结束
+          if (item.end == 1) {
+            item.status = "已结束";
+            str += "<tr>";
+          } else {
+            //进行中
+            //已开始
+            if (item.ready == 1) {
+              item.status = "进行中";
+              str += "<tr class='success'>";
+            } else {
+              item.status = "未开始";
+              str += "<tr class='warning'>";
+            }
+
+          }
         } else {
+          //下线
           item.status = "已下线";
           str += "<tr class='danger'>";
-          str += "<td>" + item.act_name + "</td>";
-          str += "<td>" + item.start_time + "</td>";
-          str += "<td>" + item.end_time + "</td>";
-          str += "<td>" + item.status + "</td>";
-          str += "</tr>";
         }
+        str += "<td>" + item.act_name + "</td>";
+        str += "<td>" + item.start_time + "</td>";
+        str += "<td>" + item.end_time + "</td>";
+        str += "<td>" + item.status + "</td>";
+        str += "</tr>";
       });
       $("#list").html(str);
     });
