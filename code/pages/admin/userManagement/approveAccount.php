@@ -16,15 +16,16 @@
   <link rel="stylesheet" href="../../../fonts/font-awesome/css/font-awesome.min.css"><!-- icon_font -->
   <!-- sddr写的 -->
   <link rel="stylesheet" href="../../../css/mystyle_index.css">
-    <!-- lm写的 -->
-    <link rel="stylesheet" href="../../../css/lm.css">
+  <!-- lm写的 -->
+  <link rel="stylesheet" href="../../../css/lm.css">
 </head>
 
 <body>
 
-  <div class="col-md-10">
-    <div class="table-responsive center">
-      <table class="card table table-hover table-striped tablesorter">
+
+  <div class="table-responsive center">
+    <div class="border-media-col-md-10 col-md-10">
+      <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>
             <th class="center">头像 <i class="fa fa-sort"></i></th>
@@ -46,7 +47,6 @@
   <!-- 占行 -->
   <div class="row bottom"></div>
 
-  
   <!-- JavaScript -->
   <script src="../../../js/jquery-1.10.2.js"></script>
   <script src="../../../js/bootstrap.js"></script>
@@ -59,28 +59,29 @@
     $.post("../../../php/getUser0List.php", "", function(data) {
       result = $.parseJSON(data);
       str = "";
-      console.log(data);
-      if(data!="[]"){
-      $.each(result, function(index, item) {
-        str += "<tr>";
-        str += "<td>"+"<img src='"+item.image+ "' width='50' height='50' alt=''>"+"</td>"
+      if (data != "[]") {
+        $.each(result, function(index, item) {
+          str += "<tr>";
+          str += "<td>" + "<img src='" + item.image + "' width='50' height='50' alt=''>" + "</td>"
           // str += "<td>" + item.image + "</td>";
-        str += "<td>" + item.account + "</td>";
-        str += "<td>" + item.user_name + "</td>";
-        str += "<td>" + item.gender + "</td>";
-        str += "<td>" + "<a class='btn btn-success' href='../../../php/approveAccount.php?userId="+ item.user_id +"'>"+"通过"+"</a>";
-        str += "&nbsp"+"<a class='btn btn-danger' href='../../../php/deleteAccount.php?userId="+ item.user_id +"'>"+"拒绝"+"</a>";
-        str += "</td>";
-        str += "</tr>";
-      });
-    }else{
-      str = "<td colspan='5'><div class=' alert-success center' >没有需要审批的用户 </td></div>"
-      $("#approve").hide();
-    }
+          str += "<td>" + item.account + "</td>";
+          str += "<td>" + item.user_name + "</td>";
+          str += "<td>" + item.gender + "</td>";
+          str += "<td>" + "<a class='btn btn-success' href='../../../php/approveAccount.php?userId=" + item.user_id + "'>" + "通过" + "</a>";
+          str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/deleteAccount.php?userId=" + item.user_id + "'>" + "拒绝" + "</a>";
+          str += "</td>";
+          str += "</tr>";
+        });
+      } else {
+        str = "<td colspan='5'><div class=' alert-success center' >没有需要审批的用户 </td></div>"
+        $("#approve").hide();
+      }
       $("#list").html(str);
-
+      $("#tableList").trigger("update");
     });
-    
+    $(function() {
+      $("#tableList").tablesorter();
+    });
   </script>
 </body>
 

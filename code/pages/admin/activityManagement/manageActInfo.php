@@ -24,7 +24,7 @@
 
 <body>
   <div class="table-responsive center">
-    <div class="col-md-10">
+    <div class="border-media-col-md-10 col-md-10">
       <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>

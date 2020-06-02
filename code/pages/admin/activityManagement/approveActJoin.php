@@ -21,9 +21,8 @@
 </head>
 
 <body>
-
-  <div class="col-md-10">
-    <div class="table-responsive center">
+  <div class="table-responsive center">
+    <div class="border-media-col-md-10 col-md-10">
       <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>
@@ -40,6 +39,11 @@
       </table>
     </div>
   </div>
+  
+  <div class="col-md-10 ">
+    <a class="btn my-success">VIP会员</a>&nbsp;
+  </div>
+
   <div class="col-md-10 " id="approve">
     <a href="../../../php/approveAllActJoin.php" class="btn btn-primary right">一键通过</a>
   </div>
@@ -58,7 +62,12 @@
       str = "";
       if (data != "[]") {
         $.each(result, function(index, item) {
+
+          if(item.is_vip=="VIP会员")
+          str += "<tr class='success'>";
+          else
           str += "<tr>";
+
           str += "<td>" + item.user_name + "</td>";
           str += "<td>" + item.account + "</td>";
           str += "<td>" + item.act_name + "</td>";

@@ -52,6 +52,10 @@ body{
 .block{
     display: block;
 }
+.chart{
+    height: 500px;
+    padding-top: 30px;
+}
 @media all and (max-width:768px){
     .table-responsive{
         border:none;
