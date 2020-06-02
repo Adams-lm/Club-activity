@@ -40,7 +40,7 @@
     </div>
   </div>
   
-  <div class="col-md-10 ">
+  <div class="col-md-10" id="tip">
     <a class="btn my-success">VIP会员</a>&nbsp;
   </div>
 
@@ -57,7 +57,7 @@
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
 
   <script type="text/javascript">
-    $.post("../../../php/getActjoinList.php", "", function(data) {
+    $.post("../../../php/getActJoinList.php", "", function(data) {
       result = $.parseJSON(data);
       str = "";
       if (data != "[]") {
@@ -83,6 +83,7 @@
       } else {
         str = "<td colspan='6'><div class=' alert-success center' >没有需要审批的报名申请 </td></div>"
         $("#approve").hide();
+        $("#tip").hide();
       }
       $("#list").html(str);
       $("#tableList").trigger("update");

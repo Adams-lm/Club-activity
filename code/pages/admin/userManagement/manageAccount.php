@@ -47,19 +47,19 @@
   </div>
 
   <div class="col-md-10 ">
-    <button class="btn btn-primary right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn btn-primary right" id="clickButton" >
       查看社团成员数据
   </div>
   <!-- 占行 -->
   <div class="row bottom"></div>
 
-  <div class="collapse" id="collapseExample">
+  <div id="toggle">
     <div class="row">
       <div class="col-md-5 col-sm-12">
         <div id="chartGender" class="chart"></div>
       </div>
       <div class="col-md-5 col-sm-12">
-        <div id="chartGender2" class="chart"></div>
+        <div id="chartVIP" class="chart"></div>
       </div>
     </div>
   </div>
@@ -71,6 +71,9 @@
   <script src="../../../js/raphael-min.js"></script>
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
   <script src="../../../js/echarts-en.min.js"></script>
+  <script src="../../../js/macarons.js"></script>
+  <script src="../../../js/walden.js"></script>
+
   <script type="text/javascript">
     $.post("../../../php/getUser1List.php", "", function(data) {
       result = $.parseJSON(data);
@@ -121,10 +124,12 @@
     });
   </script>
   <!-- 性别图表 -->
+
   <script type="text/javascript">
+  
     $.get("../../../php/getGenderNum.php", "", function(data) {
       data = $.parseJSON(data);
-      var myChart = echarts.init(document.getElementById('chartGender'));
+      var myChart = echarts.init(document.getElementById('chartGender'),'walden');
       // 指定图表的配置项和数据
       option = {
         title: {
@@ -168,8 +173,7 @@
   <script type="text/javascript">
     $.get("../../../php/getVipNum.php", "", function(data) {
       data = $.parseJSON(data);
-      console.log(data);
-      var myChart = echarts.init(document.getElementById('chartGender2'));
+      var myChart = echarts.init(document.getElementById('chartVIP'),'walden');
 
       // 指定图表的配置项和数据
       option = {
@@ -212,54 +216,12 @@
     });
   </script>
 
-  <!-- 活动报名图表 -->
-
-  <!-- <script type="text/javascript">
-        $.get("../../../php/getActJoinNum.php", "", function (data) {
-            data = $.parseJSON(data);
-            var myChart = echarts.init(document.getElementById('chartGender2'));
-
-            // 指定图表的配置项和数据
-            option = {
-                title: {
-                  padding:100,
-
-                    text: '活动报名情况',
-                    left: 'center'
-                },
-                tooltip: {
-                    trigger: 'item',
-                    formatter: '{a}{b} : {c} ({d}%)'
-                },
-                legend: {
-                    orient: 'horizontal',
-                    left: 'center',
-                    top: 'bottom',
-                    formatter: '{name}',
-                    data: data.name
-                },
-                series: [
-                    {
-                        name: '活动:',
-                        type: 'pie',
-                        radius: '55%',
-                        center: ['50%', '60%'],
-                        data: data,
-                        emphasis: {
-                            itemStyle: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                            }
-                        }
-                    }
-                ]
-            };
-
-            // 使用刚指定的配置项和数据显示图表。
-            myChart.setOption(option);
-        });
-    </script> -->
+  <script type="text/javascript">
+  $("#clickButton").click(function(){
+    $("#toggle").toggle();//显示时点击为隐藏，隐藏时点击为显示
+  })
+  </script>
+    
 </body>
 
 </html>
