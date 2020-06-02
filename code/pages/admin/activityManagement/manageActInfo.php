@@ -25,8 +25,7 @@
 <body>
   <div class="table-responsive center">
     <div class="col-md-10">
-
-      <table class="card table table-hover table-striped tablesorter">
+      <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>
             <th class="center">活动名称 <i class="fa fa-sort"></i></th>
@@ -41,6 +40,11 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="col-md-10 ">
+    <a class="btn my-success">进行中</a>&nbsp;
+    <a class="btn my-warning">未开始</a>
+    <a class="btn my-danger">已下线</a>
   </div>
   <!-- JavaScript -->
   <script src="../../../js/jquery-1.10.2.js"></script>
@@ -87,6 +91,10 @@
         str += "</tr>";
       });
       $("#list").html(str);
+      $("#tableList").trigger("update");
+    });
+    $(function() {
+      $("#tableList").tablesorter();
     });
   </script>
 </body>

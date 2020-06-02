@@ -24,7 +24,7 @@
 <body>
   <div class="table-responsive center">
     <div class="border-media-col-md-10 col-md-10">
-      <table class="card table table-hover table-striped tablesorter">
+      <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>
             <th class="center">活动名称 <i class="fa fa-sort"></i></th>
@@ -38,7 +38,11 @@
       </table>
     </div>
   </div>
-
+  <div class="col-md-10 ">
+    <a class="btn my-success">进行中</a>&nbsp;
+    <a class="btn my-warning">未开始</a>
+    <a class="btn my-danger">已下线</a>
+  </div>
   <div class="col-md-10 ">
     <button class="btn btn-primary right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       创建新的社团活动
@@ -107,7 +111,7 @@
     </div>
   </div>
   <!-- JavaScript -->
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="../../../js/jquery-1.10.2.js"></script>
   <script src="../../../js/bootstrap.js"></script>
 
   <!-- Page Specific Plugins -->
@@ -149,6 +153,10 @@
         str += "</tr>";
       });
       $("#list").html(str);
+      $("#tableList").trigger("update");
+    });
+    $(function() {
+      $("#tableList").tablesorter();
     });
   </script>
 

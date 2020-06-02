@@ -21,7 +21,7 @@
 </head>
 
 <body>
-<?php
+  <?php
   //处理时间，datetime-local格式中间为T，需要自行处理
   function Grade($time)
   {
@@ -37,137 +37,135 @@
   $row['end_time'] = Grade($row['end_time']);
   ?>
 
-<!-- 活动时间进度条 -->
-<div class="col-md-10">
-  <!-- 在线 -->
-<?php if($row['status']==1){
-// 已结束
-  if($row['end']==1){
-    echo "<h3 id='progress-animated'>活动已结束</h3>
+  <!-- 活动时间进度条 -->
+  <div class="col-md-10">
+    <!-- 在线 -->
+    <?php if ($row['status'] == 1) {
+      // 已结束
+      if ($row['end'] == 1) {
+        echo "<h3 id='progress-animated'>活动已结束</h3>
     <div class='bs-example'>
       <div class='progress progress-striped active'>
         <div class='progress-bar ' style='width: 100%'></div>
       </div>
     </div>";
-  }
-  //上线
-  else{
-    //进行中
-    if($row['ready']==1)
-  echo "<h3 id='progress-animated'>活动进行中</h3>
+      }
+      //上线
+      else {
+        //进行中
+        if ($row['ready'] == 1)
+          echo "<h3 id='progress-animated'>活动进行中</h3>
     <div class='bs-example'>
       <div class='progress progress-striped active'>
         <div class='progress-bar progress-bar-success' style='width: $row[percent]%'></div>
       </div>
     </div>";
-    else{
-      echo "<h3 id='progress-animated'>活动未开始</h3>
+        else {
+          echo "<h3 id='progress-animated'>活动未开始</h3>
         <div class='bs-example'>
           <div class='progress progress-striped active'>
             <div class='progress-bar  progress-bar-warning' style='width: 100%'></div>
           </div>
         </div>";
-    }
-  }
-  //已下线
-}else{
-  echo "<h3 id='progress-animated'>活动已下线</h3>
+        }
+      }
+      //已下线
+    } else {
+      echo "<h3 id='progress-animated'>活动已下线</h3>
     <div class='bs-example'>
       <div class='progress progress-striped active'>
         <div class='progress-bar progress-bar-danger' style='width: 100%'></div>
       </div>
     </div>";
-  }
-?>
+    }
+    ?>
   </div>
 
   <div class="col-md-10">
-  <h3>活动信息修改</h3>
+    <h3>活动信息修改</h3>
   </div>
 
-    <div class="col-md-10">
-      <div class="card box">
-        <div class="left">
-          <form class="form-horizontal" style='margin:15px auto' action="../../../php/modifyActivity.php" method="post">
-            <input type='hidden' name='actId' id="hidden" value="<?php echo $actId; ?>" />
-            <div class="form-group">
-              <label for="actName" class="col-md-3 control-label ">活动名称</label>
-              <div class="col-md-7">
-                <input type="text" class="form-control" id="actName" name="actName" value="<?php echo $row['act_name']; ?>">
-              </div>
+  <div class="col-md-10">
+    <div class="card box">
+      <div class="left">
+        <form class="form-horizontal" style='margin:15px auto' action="../../../php/modifyActivity.php" method="post">
+          <input type='hidden' name='actId' id="hidden" value="<?php echo $actId; ?>" />
+          <div class="form-group">
+            <label for="actName" class="col-md-3 control-label ">活动名称</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" id="actName" name="actName" value="<?php echo $row['act_name']; ?>">
             </div>
-            <div class="form-group">
-              <label for="startTime" class="col-md-3 control-label">开始时间</label>
-              <div class="col-md-7">
-                <input type="datetime-local" class="form-control" id="startTime" name="startTime" value="<?php echo $row['start_time']; ?>">
-              </div>
+          </div>
+          <div class="form-group">
+            <label for="startTime" class="col-md-3 control-label">开始时间</label>
+            <div class="col-md-7">
+              <input type="datetime-local" class="form-control" id="startTime" name="startTime" value="<?php echo $row['start_time']; ?>">
             </div>
-            <div class="form-group">
-              <label for="endTime" class="col-md-3 control-label">结束时间</label>
-              <div class="col-md-7">
-                <input type="datetime-local" class="form-control" id="endTime" name="endTime" value="<?php echo $row['end_time']; ?>">
-              </div>
+          </div>
+          <div class="form-group">
+            <label for="endTime" class="col-md-3 control-label">结束时间</label>
+            <div class="col-md-7">
+              <input type="datetime-local" class="form-control" id="endTime" name="endTime" value="<?php echo $row['end_time']; ?>">
             </div>
-            <div class="form-group">
-              <label for="status" class="col-md-3 control-label">活动状态</label>
-              <div class="col-md-7" style="padding-top:6px">
-              <?php 
-              if($row['status']==1){
-                echo"<input type='radio' id='status'name='status' value='1' checked='checked'>上线 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='status' value='0'>下线";
-              }
-              else{
-                echo"<input type='radio' id='status' name='status' value='1'>上线 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='status' value='0'  checked='checked'>下线";
-              }
-              ?>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="signUp" class="col-md-3 control-label">报名状态</label>
-              <div class="col-md-7" style="padding-top:6px">
-              <?php 
-              if($row['sign_up']==1){
-                echo"<input type='radio' id='signUp' name='signUp' value='1' checked='checked'>开始 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='signUp' value='0'>结束";
-              }
-              else{
-                echo"<input type='radio' id='signUp' name='signUp' value='1'>开始 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='signUp' value='0'  checked='checked'>结束";
+          </div>
+          <div class="form-group">
+            <label for="status" class="col-md-3 control-label">活动状态</label>
+            <div class="col-md-7" style="padding-top:6px">
+              <?php
+              if ($row['status'] == 1) {
+                echo "<input type='radio' id='status'name='status' value='1' checked='checked'>上线 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='status' value='0'>下线";
+              } else {
+                echo "<input type='radio' id='status' name='status' value='1'>上线 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='status' value='0'  checked='checked'>下线";
               }
               ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signUp" class="col-md-3 control-label">报名状态</label>
+            <div class="col-md-7" style="padding-top:6px">
+              <?php
+              if ($row['sign_up'] == 1) {
+                echo "<input type='radio' id='signUp' name='signUp' value='1' checked='checked'>开始 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='signUp' value='0'>结束";
+              } else {
+                echo "<input type='radio' id='signUp' name='signUp' value='1'>开始 &nbsp&nbsp&nbsp&nbsp <input type='radio' name='signUp' value='0'  checked='checked'>结束";
+              }
+              ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="content" class="col-md-3 control-label">活动内容</label>
+            <div class="media-btn col-md-7" style="padding-top:7px">
+              <textarea class="form-control" rows="5" id="content" name="content"><?php echo $row['content']; ?></textarea>
+              <br>
+              <div class="form-btn onlyright">
+                <button type="submit" class="btn btn-success" id="submit">修改</button>
+                <button type="reset" class="btn btn-default">取消</button>
               </div>
             </div>
-            <div class="form-group">
-              <label for="content" class="col-md-3 control-label">活动内容</label>
-              <div class="media-btn col-md-7" style="padding-top:7px">
-                <textarea class="form-control" rows="5" id="content" name="content" ><?php echo $row['content']; ?></textarea>
-                <br>
-                <div class="form-btn onlyright">
-                  <button type="submit" class="btn btn-success" id="submit">修改</button>
-                  <button type="reset" class="btn btn-default">取消</button>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="right">
-          <strong>活动照片</strong>
-          <label>
-            <img src="<?php echo $row[7]; ?>" width="352px" height="191px" id="image" name="image">
-            <iframe src="upload.php" style="height:auto"></iframe>
-          </label>
-        </div>
-        </form>
+          </div>
       </div>
+      <div class="right">
+        <strong>活动照片</strong>
+        <label>
+          <img src="<?php echo $row[7]; ?>" width="352px" height="191px" id="image" name="image">
+          <iframe src="upload.php" style="height:auto"></iframe>
+        </label>
+      </div>
+      </form>
     </div>
+  </div>
 
 
   <div>
     <div class="col-md-10">
-    <h3  >服务包管理</h3>
+      <h3>服务包管理</h3>
     </div>
-      <!-- 占行 -->
-  <div class="row"></div>
+    <!-- 占行 -->
+    <div class="row"></div>
 
     <div class="table-responsive center">
       <div class="border-media-col-md-10 col-md-10">
-        <table class="card table table-hover table-striped tablesorter">
+        <table class="card table table-hover table-striped tablesorter" id="tableList">
           <thead>
             <tr>
               <th class="center">服务包名字 <i class="fa fa-sort"></i></th>
@@ -234,7 +232,7 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="../../../js/jquery-1.10.2.js"></script>
 
   <script src="../../../js/bootstrap.js"></script>
 
@@ -251,7 +249,7 @@
       str = "";
       $.each(result, function(index, item) {
         var status = "";
-        if (item.is_ban == "0"){
+        if (item.is_ban == "0") {
           status = "正常";
           str += "<tr>";
           str += "<td>" + item.service_name + "</td>";
@@ -261,8 +259,7 @@
           str += "<td>" + "<a class='btn btn-warning' href='../../../php/banService.php?serviceId=" + item.service_id + "'>" + "禁用" + "</a>";
           str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/deleteService.php?serviceId=" + item.service_id + "'>" + "删除" + "</a>";
           str += "</td>";
-        }
-        else{
+        } else {
           status = "禁用中";
           str += "<tr class='danger'>";
           str += "<td>" + item.service_name + "</td>";
@@ -275,6 +272,10 @@
         }
       });
       $("#list").html(str);
+      $("#tableList").trigger("update");
+    });
+    $(function() {
+      $("#tableList").tablesorter();
     });
   </script>
 </body>
