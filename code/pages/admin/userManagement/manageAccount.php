@@ -51,14 +51,14 @@
       查看社团成员数据
   </div>
   <!-- 占行 -->
-  <div class="row bottom"></div>
+  <!-- <div class="row bottom"></div> -->
 
-  <div id="toggle">
+  <div id="toggle" class="invisible">
     <div class="row">
-      <div class="col-md-5 col-sm-12">
+      <div class="col-md-5 ">
         <div id="chartGender" class="chart"></div>
       </div>
-      <div class="col-md-5 col-sm-12">
+      <div class="col-md-5 ">
         <div id="chartVIP" class="chart"></div>
       </div>
     </div>
@@ -71,7 +71,6 @@
   <script src="../../../js/raphael-min.js"></script>
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
   <script src="../../../js/echarts-en.min.js"></script>
-  <script src="../../../js/macarons.js"></script>
   <script src="../../../js/walden.js"></script>
 
   <script type="text/javascript">
@@ -129,7 +128,7 @@
   
     $.get("../../../php/getGenderNum.php", "", function(data) {
       data = $.parseJSON(data);
-      var myChart = echarts.init(document.getElementById('chartGender'),'walden');
+
       // 指定图表的配置项和数据
       option = {
         title: {
@@ -165,6 +164,7 @@
       };
 
       // 使用刚指定的配置项和数据显示图表。
+      var myChart = echarts.init(document.getElementById('chartGender'),'walden');
       myChart.setOption(option);
     });
   </script>
@@ -217,9 +217,11 @@
   </script>
 
   <script type="text/javascript">
-  $("#clickButton").click(function(){
-    $("#toggle").toggle();//显示时点击为隐藏，隐藏时点击为显示
-  })
+
+    $("#clickButton").click(function(){
+      // $("#toggle").toggle();//显示时点击为隐藏，隐藏时点击为显示
+      $('#toggle').css("visibility","visible");
+    });
   </script>
     
 </body>

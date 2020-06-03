@@ -39,9 +39,9 @@
     </div>
   </div>
   <div class="col-md-10 ">
-    <a class="btn my-success">进行中</a>&nbsp;
-    <a class="btn my-warning">未开始</a>
-    <a class="btn my-danger">已下线</a>
+    <a class="btn my-success"></a>&nbsp;进行中&nbsp;&nbsp;
+    <a class="btn my-warning"></a>&nbsp;未开始&nbsp;&nbsp;
+    <a class="btn my-danger"></a>&nbsp;已下线&nbsp;&nbsp;
   </div>
   <div class="col-md-10 ">
     <button class="btn btn-primary right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -110,7 +110,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- JavaScript -->
   <script src="../../../js/jquery-1.10.2.js"></script>
   <script src="../../../js/bootstrap.js"></script>

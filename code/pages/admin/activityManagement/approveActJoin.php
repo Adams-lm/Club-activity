@@ -41,7 +41,7 @@
   </div>
   
   <div class="col-md-10" id="tip">
-    <a class="btn my-success">VIP会员</a>&nbsp;
+    <a class="btn my-success"></a>&nbsp;VIP会员&nbsp;
   </div>
 
   <div class="col-md-10 " id="approve">
