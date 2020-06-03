@@ -21,7 +21,7 @@
 
 <body>
 
-  <div id="wrapper">
+  <div id="wrapper" style="height:100%">
 
     <!-- Sidebar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -83,7 +83,7 @@
     </nav>
 
 
-    <div id="page-wrappper">
+    <div id="page-wrappper" style="height:100%">
       <iframe src="" name="iframe_link"></iframe>
     </div>
 

@@ -1,6 +1,7 @@
 body{
     margin-top:15px;
 }
+
 /* #toggle{
     display: none;
 } */
@@ -69,9 +70,6 @@ body{
     .left{
         width: 100%;
     }
-    .right{
-        margin-top:0;
-    }
     .center{
         padding:0 15px;
     }
@@ -86,6 +84,7 @@ body{
     .media-btn{
         position: relative;
     }
+
     .form-btn{
         position: absolute;
         top: 420px;
@@ -93,6 +92,9 @@ body{
     }
     .border-media-col-md-10{
         padding: 0;
+    }
+    .onlyright{
+        margin-top: 60px;
     }
     .table{
         margin: 0;

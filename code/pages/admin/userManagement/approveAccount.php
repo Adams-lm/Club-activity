@@ -21,10 +21,15 @@
 </head>
 
 <body>
-
-
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+      <li class="active"><i class="fa fa-font"></i> 审批注册用户</li>
+    </ol>
+  </div>
+  <div class="row"></div> <!-- 占行清除浮动 -->
   <div class="table-responsive center">
-    <div class="border-media-col-md-10 col-md-10">
+    <div class="border-media-col-md-10 col-md-12">
       <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>
@@ -41,7 +46,7 @@
     </div>
   </div>
 
-  <div class="col-md-10 " id="approve">
+  <div class="col-md-12 " id="approve">
     <a href="../../../php/approveAllAccount.php" class="btn btn-primary right">一键通过</a>
   </div>
   <!-- 占行 -->

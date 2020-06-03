@@ -23,8 +23,15 @@
 </head>
 
 <body>
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+      <li class="active"><i class="fa fa-font"></i> 管理活动信息</li>
+    </ol>
+  </div>
+  <div class="row"></div> <!-- 占行清除浮动 -->
   <div class="table-responsive center">
-    <div class="border-media-col-md-10 col-md-10">
+    <div class="border-media-col-md-10 col-md-12">
       <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>
@@ -41,19 +48,19 @@
       </table>
     </div>
   </div>
-  <div class="col-md-10 ">
+  <div class="col-md-12 ">
     <a class="btn my-success"></a>&nbsp;进行中&nbsp;&nbsp;
     <a class="btn my-warning"></a>&nbsp;未开始&nbsp;&nbsp;
     <a class="btn my-danger"></a>&nbsp;已下线&nbsp;&nbsp;
   </div>
-  <div class="col-md-10 ">
+  <div class="col-md-12 ">
     <button class="btn btn-primary right" id="clickButton">
       查看活动报名情况
   </div>
 
   <div class="row bottom"></div> <!-- 去浮动 -->
 
-  <div class="col-md-10 invisible" id="toggle">
+  <div class="col-md-12 invisible" id="toggle">
     <div id="mychart" class="chart"></div>
   </div>
 
@@ -208,6 +215,7 @@
       option = {
         title: {
           text: '活动报名人数统计表',
+          subtext: '点击查看详情信息',
           left: 'center'
         },
         tooltip: {
@@ -258,7 +266,7 @@
             str = "";
             $.each(result, function(index, item) {
               var status = "";
-              if(item.is_sign=="已签到")
+              if (item.is_sign == "已签到")
                 str += "<tr class='success'>";
               else
                 str += "<tr>";

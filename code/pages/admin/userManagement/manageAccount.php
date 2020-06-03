@@ -21,8 +21,15 @@
 </head>
 
 <body>
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+      <li class="active"><i class="fa fa-font"></i> 管理在册用户</li>
+    </ol>
+  </div>
+  <div class="row"></div> <!-- 占行清除浮动 -->
   <div class="table-responsive center">
-    <div class="border-media-col-md-10 col-md-10">
+    <div class="border-media-col-md-10 col-md-12">
       <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>
@@ -41,13 +48,13 @@
     </div>
   </div>
 
-  <div class="col-md-10 ">
+  <div class="col-md-12 ">
     <a class="btn my-success"></a>&nbsp;VIP会员&nbsp;&nbsp;
     <a class="btn my-danger"></a>&nbsp;禁用中
   </div>
 
-  <div class="col-md-10 ">
-    <button class="btn btn-primary right" id="clickButton" >
+  <div class="col-md-12 ">
+    <button class="btn btn-primary right" id="clickButton">
       查看社团成员数据
   </div>
   <!-- 占行 -->
@@ -55,10 +62,10 @@
 
   <div id="toggle" class="invisible">
     <div class="row">
-      <div class="col-md-5 ">
+      <div class="col-md-6 ">
         <div id="chartGender" class="chart"></div>
       </div>
-      <div class="col-md-5 ">
+      <div class="col-md-6 ">
         <div id="chartVIP" class="chart"></div>
       </div>
     </div>
@@ -125,7 +132,6 @@
   <!-- 性别图表 -->
 
   <script type="text/javascript">
-  
     $.get("../../../php/getGenderNum.php", "", function(data) {
       data = $.parseJSON(data);
 
@@ -164,7 +170,7 @@
       };
 
       // 使用刚指定的配置项和数据显示图表。
-      var myChart = echarts.init(document.getElementById('chartGender'),'walden');
+      var myChart = echarts.init(document.getElementById('chartGender'), 'walden');
       myChart.setOption(option);
     });
   </script>
@@ -173,7 +179,7 @@
   <script type="text/javascript">
     $.get("../../../php/getVipNum.php", "", function(data) {
       data = $.parseJSON(data);
-      var myChart = echarts.init(document.getElementById('chartVIP'),'walden');
+      var myChart = echarts.init(document.getElementById('chartVIP'), 'walden');
 
       // 指定图表的配置项和数据
       option = {
@@ -217,13 +223,12 @@
   </script>
 
   <script type="text/javascript">
-
-    $("#clickButton").click(function(){
+    $("#clickButton").click(function() {
       // $("#toggle").toggle();//显示时点击为隐藏，隐藏时点击为显示
-      $('#toggle').css("visibility","visible");
+      $('#toggle').css("visibility", "visible");
     });
   </script>
-    
+
 </body>
 
 </html>

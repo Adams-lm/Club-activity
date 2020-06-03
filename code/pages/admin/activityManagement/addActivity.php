@@ -22,8 +22,15 @@
 </head>
 
 <body>
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+      <li class="active"><i class="fa fa-font"></i> 发布社团活动</li>
+    </ol>
+  </div>
+  <div class="row"></div> <!-- 占行清除浮动 -->
   <div class="table-responsive center">
-    <div class="border-media-col-md-10 col-md-10">
+    <div class="border-media-col-md-10 col-md-12">
       <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>
@@ -38,12 +45,12 @@
       </table>
     </div>
   </div>
-  <div class="col-md-10 ">
+  <div class="col-md-12 ">
     <a class="btn my-success"></a>&nbsp;进行中&nbsp;&nbsp;
     <a class="btn my-warning"></a>&nbsp;未开始&nbsp;&nbsp;
     <a class="btn my-danger"></a>&nbsp;已下线&nbsp;&nbsp;
   </div>
-  <div class="col-md-10 ">
+  <div class="col-md-12 ">
     <button class="btn btn-primary right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       创建新的社团活动
   </div>
@@ -51,7 +58,7 @@
   <div class="row bottom"></div>
 
   <div class="collapse" id="collapseExample">
-    <div class="col-md-10 ">
+    <div class="col-md-12 ">
       <div class="card box">
         <div class="left">
           <form class="form-horizontal" style='margin:15px auto' action="../../../php/addActivity.php" method="post">

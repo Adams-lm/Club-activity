@@ -21,8 +21,15 @@
 </head>
 
 <body>
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+      <li class="active"><i class="fa fa-font"></i> 审批报名申请</li>
+    </ol>
+  </div>
+  <div class="row"></div> <!-- 占行清除浮动 -->
   <div class="table-responsive center">
-    <div class="border-media-col-md-10 col-md-10">
+    <div class="border-media-col-md-10 col-md-12">
       <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>
@@ -39,12 +46,12 @@
       </table>
     </div>
   </div>
-  
-  <div class="col-md-10" id="tip">
+
+  <div class="col-md-12" id="tip">
     <a class="btn my-success"></a>&nbsp;VIP会员&nbsp;
   </div>
 
-  <div class="col-md-10 " id="approve">
+  <div class="col-md-12 " id="approve">
     <a href="../../../php/approveAllActJoin.php" class="btn btn-primary right">一键通过</a>
   </div>
 
@@ -63,10 +70,10 @@
       if (data != "[]") {
         $.each(result, function(index, item) {
 
-          if(item.is_vip=="VIP会员")
-          str += "<tr class='success'>";
+          if (item.is_vip == "VIP会员")
+            str += "<tr class='success'>";
           else
-          str += "<tr>";
+            str += "<tr>";
 
           str += "<td>" + item.user_name + "</td>";
           str += "<td>" + item.account + "</td>";
