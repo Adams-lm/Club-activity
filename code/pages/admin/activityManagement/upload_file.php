@@ -1,4 +1,5 @@
 <?php
+ini_set('date.timezone','Asia/Shanghai');
 session_start();
 $bool = ($_FILES["file"]["type"] == "image/gif"     ||
     $_FILES["file"]["type"] == "image/jfif"   ||
