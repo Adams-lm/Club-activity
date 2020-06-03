@@ -14,9 +14,7 @@
 
   <!-- Add custom CSS here -->
   <link href="../css/sb-admin.css" rel="stylesheet"><!-- 侧边栏 -->
-  <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css"><!-- icon_font -->
-  <!-- Page Specific CSS -->
-  <link rel="stylesheet" href="../css/morris-0.4.3.min.css">
+  <link rel="stylesheet" href="../fonts/font-awesome/css/font-awesome.min.css"><!-- icon_font -->
   <!-- sddr写的 -->
   <link rel="stylesheet" href="../css/mystyle_index.css">
 </head>
@@ -96,11 +94,8 @@
   <script src="../js/bootstrap.js"></script>
 
   <!-- Page Specific Plugins -->
-  <script src="js/raphael-min.js"></script>
-  <script src="../js/morris-0.4.3.min.js"></script>
-  <script src="../js/morris/chart-data-morris.js"></script>
+  <script src="../js/raphael-min.js"></script>
   <script src="../js/tablesorter/jquery.tablesorter.js"></script>
-  <script src="../js/tablesorter/tables.js"></script>
 
 </body>
 
