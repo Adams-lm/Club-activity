@@ -53,12 +53,11 @@
 
   <div class="row bottom"></div> <!-- 去浮动 -->
 
-
   <div class="col-md-10 invisible" id="toggle">
     <div id="mychart" class="chart"></div>
   </div>
 
-  <!-- 测试啊啊啊 -->
+  <!-- 测试传参 -->
 
   <!-- 模拟点击按钮 -->
   <div class="row" style="display:none">
@@ -68,7 +67,7 @@
 
   <!-- 模态框 -->
   <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-    <div class="modal-dialog modal-md" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -107,8 +106,6 @@
     </div>
   </div>
   <!-- 测试结束 -->
-
-
 
   <!-- JavaScript -->
   <script src="../../../js/jquery-1.10.2.js"></script>
@@ -254,7 +251,6 @@
 
           //然后获取数据
           var actId = document.getElementById("hidden").value;
-          console.log(actId);
           $.post("../../../php/getSignUp.php?", {
             actId: actId
           }, function(data) {
@@ -270,17 +266,6 @@
               str += "<td>" + item.service_name + "</td>";
               str += "<td>" + item.is_sign + "</td>";
               str += "</tr>";
-              // else {
-              //   status = "禁用中";
-              //   str += "<tr class='danger'>";
-              //   str += "<td>" + item.service_name + "</td>";
-              //   str += "<td>" + item.price + "</td>";
-              //   str += "<td>" + item.content + "</td>";
-              //   str += "<td>" + status + "</td>";
-              //   str += "<td>" + "<a class='btn btn-success' href='../../../php/banService.php?serviceId=" + item.service_id + "'>" + "解禁" + "</a>";
-              //   str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/deleteService.php?serviceId=" + item.service_id + "'>" + "删除" + "</a>";
-              //   str += "</td>";
-              // }
             });
             $("#SignUplist").html(str);
             $("#tableList2").trigger("update");
@@ -308,7 +293,6 @@
     });
   </script>
 
-  <!-- 从数据库获取列表数据 -->
 
 </body>
 
