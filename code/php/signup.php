@@ -22,10 +22,10 @@
     mysqli_stmt_bind_param($stmt,"sssss",$account,$username,$password,$gender,$image);
     mysqli_stmt_execute($stmt);
     if(mysqli_affected_rows($conn)>0){
-        page_redirect(1,"","注册成功！");
+        page_redirect(0,"","注册成功！");
     }
     else{
-        page_redirect(1,"","注册失败！");
+        page_redirect(0,"","注册失败！");
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);

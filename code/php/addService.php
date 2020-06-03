@@ -13,7 +13,7 @@
         page_redirect(0,"","服务包添加成功！");
     }
     else{
-        page_redirect(1,"","服务包添加失败！请输入正确的价格！！！");
+        page_redirect(0,"","服务包添加失败！请输入正确的价格！！！");
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);

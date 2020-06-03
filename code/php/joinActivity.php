@@ -9,10 +9,10 @@
     mysqli_stmt_bind_param($stmt,"ii",$userId,$actId);
     mysqli_stmt_execute($stmt);
     if(mysqli_affected_rows($conn)>0){
-        page_redirect(1,"","成功报名活动，请等待申请结果！");
+        page_redirect(0,"","成功报名活动，请等待申请结果！");
     }
     else{
-        page_redirect(1,"","活动报名失败！");
+        page_redirect(0,"","活动报名失败！");
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);

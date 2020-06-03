@@ -11,10 +11,10 @@
     mysqli_stmt_bind_param($stmt,"iis",$userId,$actId,$content);
     mysqli_stmt_execute($stmt);
     if(mysqli_affected_rows($conn)>0){
-        page_redirect(1,"","评论成功");
+        page_redirect(0,"","评论成功");
     }
     else{
-        page_redirect(1,"","评论失败！！！");
+        page_redirect(0,"","评论失败！！！");
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);

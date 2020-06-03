@@ -10,7 +10,7 @@
         page_redirect(0,"","已拒绝改用户申请");
     }
     else{
-        page_redirect(1,"","失败!");   
+        page_redirect(0,"","失败!");   
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);

@@ -20,7 +20,7 @@
         page_redirect(0,"","活动创建成功");
     }
     else{
-        page_redirect(1,"","活动创建失败");
+        page_redirect(0,"","活动创建失败");
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);

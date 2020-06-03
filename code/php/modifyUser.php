@@ -15,7 +15,7 @@
     mysqli_stmt_bind_param($stmt,"ssssi",$password,$userName,$gender,$image,$userId);
     mysqli_stmt_execute($stmt);
     if(mysqli_affected_rows($conn)>0){
-        page_redirect(1,"","用户信息修改成功!");
+        page_redirect(0,"","用户信息修改成功!");
     }
     else{
         page_redirect(1,"","用户信息修改失败!");   

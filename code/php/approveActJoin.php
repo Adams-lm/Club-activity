@@ -11,7 +11,7 @@
         page_redirect(0,"","审批通过!");
     }
     else{
-        page_redirect(1,"","审批失败!");   
+        page_redirect(0,"","审批失败!");   
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);

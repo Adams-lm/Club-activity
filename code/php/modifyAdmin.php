@@ -15,10 +15,10 @@
     mysqli_stmt_bind_param($stmt,"ssssi",$password,$adminName,$gender,$image,$userId);
     mysqli_stmt_execute($stmt);
     if(mysqli_affected_rows($conn)>0){
-        page_redirect(1,"","管理员信息修改成功!");
+        page_redirect(0,"","管理员信息修改成功!");
     }
     else{
-        page_redirect(1,"","管理员信息修改失败!");   
+        page_redirect(0,"","管理员信息修改失败!");   
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
