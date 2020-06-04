@@ -82,8 +82,8 @@
             item.service_name = "无";
           str += "<td>" + item.service_name + "</td>";
           str += "<td>" + item.is_vip + "</td>";
-          str += "<td>" + "<a class='btn btn-success' href='../../../php/approveActJoin.php?userId=" + item.user_id + "'>" + "通过" + "</a>";
-          str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/refuseActJoin.php?userId=" + item.user_id + "'>" + "拒绝" + "</a>";
+          str += "<td>" + "<a class='btn btn-success' href='../../../php/approveActJoin.php?id=" + item.id + "'>" + "通过" + "</a>";
+          str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/refuseActJoin.php?id=" + item.id + "'>" + "拒绝" + "</a>";
           str += "</td>";
           str += "</tr>";
         });

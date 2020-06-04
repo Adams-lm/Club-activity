@@ -30,7 +30,11 @@
     </ol>
   </div>
   <div class="row"></div> <!-- 占行清除浮动 -->
-  <div class="table-responsive center">
+
+  <div id="list">
+    <!-- ajax -->
+  </div>
+  <!-- <div class="table-responsive center">
     <div class="border-media-col-md-10 col-md-12">
       <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
@@ -47,12 +51,12 @@
         </tbody>
       </table>
     </div>
-  </div>
-  <div class="col-md-12 ">
+  </div> -->
+  <!-- <div class="col-md-12 ">
     <a class="btn my-success"></a>&nbsp;进行中&nbsp;&nbsp;
     <a class="btn my-warning"></a>&nbsp;未开始&nbsp;&nbsp;
     <a class="btn my-danger"></a>&nbsp;已下线&nbsp;&nbsp;
-  </div>
+  </div> -->
   <div class="col-md-12 ">
     <button class="btn btn-primary right" id="clickButton">
       查看活动报名情况
@@ -130,37 +134,73 @@
     $.post("../../../php/getActivityList.php", "", function(data) {
       result = $.parseJSON(data);
       str = "";
+
       $.each(result, function(index, item) {
-        //在线
+        str += "<div class='col-md-3 padding-right-bottom'>";
+        str += "<div class='my-border'>";
+        str += "<div class='center'>";
+        str += "<h3>" + item.act_name + "</h3>";
+        str += "</div>"
+        str += "<div class='pad15'>";
+        str += "<a href='addService.php?actId=" + item.act_id + "'>";
+        str += "<img src='" + item.image + "'class='photo200' >";
+        str += "</a>";
+        str += "</div>";
+        str += "<div class='ope'>";
         if (item.status == 1) {
           //已结束
           if (item.end == 1) {
             item.status = "已结束";
-            str += "<tr>";
+            str += "<div style='float:left;'><p class='btn my-warning'>已结束</p> </div>";
           } else {
             //进行中
             //已开始
             if (item.ready == 1) {
               item.status = "进行中";
-              str += "<tr class='success'>";
+              str += "<div style='float:left;'><p class='btn my-success'>进行中</p> </div>";
             } else {
               item.status = "未开始";
-              str += "<tr class='warning'>";
+              str += "<div style='float:left;'><p class='btn my-primary'>未开始</p> </div>";
             }
-
           }
         } else {
           //下线
           item.status = "已下线";
-          str += "<tr class='danger'>";
+          str += "<div style='float:left;'><p class='btn my-danger'>已下线</p> </div>";
         }
-        str += "<td>" + item.act_name + "</td>";
-        str += "<td>" + item.start_time + "</td>";
-        str += "<td>" + item.end_time + "</td>";
-        str += "<td>" + item.status + "</td>";
-        str += "<td><a class='btn btn-info' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a>";
-        str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
-        str += "</tr>";
+        str += "<div style='float:right;'>";
+        str += "<a class='btn btn-info' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a> &nbsp;<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
+        str += "</div> <div style='clear:both'></div></div></div></div>";
+
+        // if (item.status == 1) {
+        //   //已结束
+        //   if (item.end == 1) {
+        //     item.status = "已结束";
+        //     str += "<tr>";
+        //   } else {
+        //     //进行中
+        //     //已开始
+        //     if (item.ready == 1) {
+        //       item.status = "进行中";
+        //       str += "<tr class='success'>";
+        //     } else {
+        //       item.status = "未开始";
+        //       str += "<tr class='warning'>";
+        //     }
+
+        //   }
+        // } else {
+        //   //下线
+        //   item.status = "已下线";
+        //   str += "<tr class='danger'>";
+        // }
+        // str += "<td>" + item.act_name + "</td>";
+        // str += "<td>" + item.start_time + "</td>";
+        // str += "<td>" + item.end_time + "</td>";
+        // str += "<td>" + item.status + "</td>";
+        // str += "<td><a class='btn btn-info' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a>";
+        // str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
+        // str += "</tr>";
       });
       $("#list").html(str);
       $("#tableList").trigger("update");

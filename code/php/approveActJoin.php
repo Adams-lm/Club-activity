@@ -1,11 +1,11 @@
 <?php
     include("functions.php");
-    $userId=$_GET["userId"];
+    $id=$_GET["id"];
     $status = 1;
     include("conn.php");
-    $sql="update activity_join set status=? where user_id=?";
+    $sql="update activity_join set status=? where id=?";
     $stmt=mysqli_prepare($conn,$sql);
-    mysqli_stmt_bind_param($stmt,"ii",$status,$userId);
+    mysqli_stmt_bind_param($stmt,"ii",$status,$id);
     mysqli_stmt_execute($stmt);
     if(mysqli_affected_rows($conn)>0){
         page_redirect(0,"","审批通过!");
