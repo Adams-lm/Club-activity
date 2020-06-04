@@ -67,6 +67,9 @@ body{
     .table-responsive{
         border:none;
     }
+    .media-photo{
+        width: 100%;
+    }
     .left{
         width: 100%;
     }

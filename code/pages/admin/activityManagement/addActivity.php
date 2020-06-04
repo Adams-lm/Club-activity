@@ -18,7 +18,7 @@
   <!-- sddr写的 -->
   <link rel="stylesheet" href="../../../css/mystyle_index.css">
   <!-- lm写的 -->
-  <link rel="stylesheet" href="../../../css/lm.css">
+  <link rel="stylesheet" href="../../../css/mystyle_admin.css">
 </head>
 
 <body>
@@ -109,7 +109,7 @@
         <div class="right">
           <strong>活动照片</strong>
           <label>
-            <img src="../../../upload/default.jfif" width="352px" height="191px" id="image" name="image">
+            <img src="../../../upload/default.jfif" width="352px" height="191px" id="image"  class="media-photo" name="image">
             <iframe src="upload.php" style="height:auto"></iframe>
           </label>
         </div>

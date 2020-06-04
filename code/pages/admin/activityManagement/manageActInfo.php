@@ -19,7 +19,7 @@
   <!-- sddr写的 -->
   <link rel="stylesheet" href="../../../css/mystyle_index.css">
   <!-- lm写的 -->
-  <link rel="stylesheet" href="../../../css/lm.css">
+  <link rel="stylesheet" href="../../../css/mystyle_admin.css">
 </head>
 
 <body>
