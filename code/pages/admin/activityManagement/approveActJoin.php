@@ -60,7 +60,7 @@
 
   <!-- 一键通过 -->
   <div class="col-md-12">
-    <a href="../../../php/approveAllActJoin.php" class="btn btn-primary right">一键通过</a>
+    <a href="../../../php/approveAllActJoin.php" class="btn btn-primary right" onclick="return approve();">一键通过</a>
   </div>
 
   <!-- JavaScript -->

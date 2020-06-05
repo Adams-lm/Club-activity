@@ -3,7 +3,7 @@ $.post("../../../php/getActivityList.php", "", function (data) {
   result = $.parseJSON(data);
   str = "";
 
-  $.each(result, function(index, item) {
+  $.each(result, function (index, item) {
     str += "<div class='col-md-3 padding-right-bottom'>";
     str += "<div class='my-border'>";
     str += "<div class='center'>";
@@ -37,19 +37,19 @@ $.post("../../../php/getActivityList.php", "", function (data) {
       str += "<div style='float:left;'><p class='btn my-danger'>已下线</p> </div>";
     }
     str += "<div style='float:right;'>";
-    str += "<a class='btn btn-info' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a> &nbsp;<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "'>删除</a>";
+    str += "<a class='btn btn-info' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a> &nbsp;<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "' onclick= 'return del();' >" + "删除" + "</a>";
     str += "</div> <div style='clear:both'></div></div></div></div>";
 
   });
   $("#list").html(str);
   $("#tableList").trigger("update");
 });
-$(function() {
+$(function () {
   $("#tableList").tablesorter();
 });
 
 //   图表的显示
-$.get("../../../php/getActJoinNum.php", "", function(data) {
+$.get("../../../php/getActJoinNum.php", "", function (data) {
   data = $.parseJSON(data);
   var arr1 = [];
   if (data) {
@@ -95,12 +95,12 @@ $.get("../../../php/getActJoinNum.php", "", function(data) {
   myChart.setOption(option);
 
   // 点击后的触发 显示报名情况
-  myChart.on('click', function(param) {
+  myChart.on('click', function (param) {
 
     // console.log(param.data.id);
 
     //给点击事件传参
-    $('#test').click(function(event, arg1) {
+    $('#test').click(function (event, arg1) {
       //先赋值
       $('#hidden').val(arg1);
 
@@ -108,10 +108,10 @@ $.get("../../../php/getActJoinNum.php", "", function(data) {
       var actId = document.getElementById("hidden").value;
       $.post("../../../php/getSignUp.php?", {
         actId: actId
-      }, function(data) {
+      }, function (data) {
         result = $.parseJSON(data);
         str = "";
-        $.each(result, function(index, item) {
+        $.each(result, function (index, item) {
           var status = "";
           if (item.is_sign == "已签到")
             str += "<tr class='success'>";
@@ -125,7 +125,7 @@ $.get("../../../php/getActJoinNum.php", "", function(data) {
         $("#SignUplist").html(str);
         $("#tableList2").trigger("update");
       });
-      $(function() {
+      $(function () {
         $("#tableList2").tablesorter();
       });
     });
@@ -136,7 +136,7 @@ $.get("../../../php/getActJoinNum.php", "", function(data) {
 });
 
 //控制图表隐藏于显示
-$("#clickButton").click(function() {
+$("#clickButton").click(function () {
   // $("#toggle").toggle();//显示时点击为隐藏，隐藏时点击为显示
   if ($("#toggle").css("visibility") != "hidden") {
     $("#toggle").css("visibility", "hidden");
@@ -144,3 +144,11 @@ $("#clickButton").click(function() {
     $("#toggle").css("visibility", "visible");
   };
 });
+
+//自定义删除提示函数
+function del() {
+  if (confirm("确定要删除吗？"))
+    return true;
+  else
+    return false;
+}

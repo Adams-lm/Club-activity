@@ -56,7 +56,7 @@
 
   <!-- 全部通过 -->
   <div class="col-md-12 " id="approve">
-    <a href="../../../php/approveAllAccount.php" class="btn btn-primary right">全部通过</a>
+    <a href="../../../php/approveAllAccount.php" class="btn btn-primary right" onclick="return approve();">一键通过</a>
   </div>
   <!-- 占行 -->
   <div class="row bottom"></div>
