@@ -94,8 +94,8 @@
   <script src="../../../js/jquery.pagination.js"></script>
 
   <!-- echart -->
-  <script src="../../../js/echarts-en.min.js"></script>
-  <script src="../../../js/walden.js"></script>
+  <script src="../../../js/echart/echarts-en.min.js"></script>
+  <script src="../../../js/echart/walden.js"></script>
 
   <!-- ajax获取用户列表 echart 图标 及控制显示 -->
   <script src="../../../js/ajax/manageAccount.js"></script>

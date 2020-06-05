@@ -111,8 +111,8 @@
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
 
   <!-- echart -->
-  <script src="../../../js/echarts-en.min.js"></script>
-  <script src="../../../js/macarons.js"></script>
+  <script src="../../../js/echart/echarts-en.min.js"></script>
+  <script src="../../../js/echart/macarons.js"></script>
 
   <!-- ajax 活动列表 图表显示 点击显示报名情况 -->
   <script src="../../../js/ajax/manageActInfo.js"></script>
