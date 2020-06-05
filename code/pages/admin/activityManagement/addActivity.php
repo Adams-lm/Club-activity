@@ -4,17 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
   <title>社团活动管理系统</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../../../css/bootstrap.css" rel="stylesheet">
   <!-- Add custom CSS here -->
-  <link href="../../../css/sb-admin.css" rel="stylesheet"><!-- 侧边栏 -->
-  <link rel="stylesheet" href="../../../fonts/font-awesome/css/font-awesome.min.css"><!-- icon_font -->
-  <!-- Page Specific CSS -->
+  <link href="../../../css/sb-admin.css" rel="stylesheet">
+  <!-- icon_font -->
+  <link rel="stylesheet" href="../../../fonts/font-awesome/css/font-awesome.min.css">
+  <!-- 分页css -->
+  <link rel="stylesheet" href="../../../css/pagination.css">
   <!-- sddr写的 -->
   <link rel="stylesheet" href="../../../css/mystyle_index.css">
   <!-- lm写的 -->
@@ -22,22 +21,28 @@
 </head>
 
 <body>
+
+  <!-- 顶部面包屑 -->
   <div class="col-md-12">
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-      <li class="active"><i class="fa fa-font"></i> 发布社团活动</li>
+      <li class="active"> 发布社团活动</li>
     </ol>
   </div>
-  <div class="row"></div> <!-- 占行清除浮动 -->
+
+  <!-- 占行清除浮动 -->
+  <div class="row"></div>
+
+  <!-- 活动列表 -->
   <div class="table-responsive center">
     <div class="border-media-col-md-10 col-md-12">
       <table class="card table table-hover table-striped tablesorter" id="tableList">
         <thead>
           <tr>
-            <th class="center">活动名称 <i class="fa fa-sort"></i></th>
-            <th class="center">开始时间 <i class="fa fa-sort"></i></th>
-            <th class="center">结束时间 <i class="fa fa-sort"></i></th>
-            <th class="center">活动状态 <i class="fa fa-sort"></i></th>
+            <th class="center col-md-3 col-sm-3">活动名称 <i class="fa fa-sort"></i></th>
+            <th class="center col-md-3 col-sm-3">开始时间 <i class="fa fa-sort"></i></th>
+            <th class="center col-md-3 col-sm-3">结束时间 <i class="fa fa-sort"></i></th>
+            <th class="center col-md-3 col-sm-3">活动状态 <i class="fa fa-sort"></i></th>
           </tr>
         </thead>
         <tbody id="list">
@@ -45,18 +50,27 @@
       </table>
     </div>
   </div>
+
+  <!-- 状态提示信息 -->
   <div class="col-md-12 ">
     <a class="btn my-success"></a>&nbsp;进行中&nbsp;&nbsp;
     <a class="btn my-warning"></a>&nbsp;未开始&nbsp;&nbsp;
     <a class="btn my-danger"></a>&nbsp;已下线&nbsp;&nbsp;
   </div>
+
+  <!-- 分页 -->
+  <div id="pager" class="quotes"></div>
+
+  <!-- 创建活动模态框触发 -->
   <div class="col-md-12 ">
     <button class="btn btn-primary right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       创建新的社团活动
   </div>
-  <!-- 占行 -->
+
+  <!-- 占行清除浮动 -->
   <div class="row bottom"></div>
 
+  <!-- 模态框 -->
   <div class="collapse" id="collapseExample">
     <div class="col-md-12 ">
       <div class="card box">
@@ -109,7 +123,7 @@
         <div class="right">
           <strong>活动照片</strong>
           <label>
-            <img src="../../../upload/default.jfif" width="352px" height="191px" id="image"  class="media-photo" name="image">
+            <img src="../../../upload/default.jfif" width="352px" height="191px" id="image" class="media-photo" name="image">
             <iframe src="upload.php" style="height:auto"></iframe>
           </label>
         </div>
@@ -119,54 +133,19 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="../../../js/jquery-1.10.2.js"></script>
+  <script src="../../../js/jquery-3.4.1.min.js"></script>
   <script src="../../../js/bootstrap.js"></script>
 
   <!-- Page Specific Plugins -->
   <script src="../../../js/raphael-min.js"></script>
+
+  <!-- tablesort -->
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
+  <!-- 分页 -->
+  <script src="../../../js/jquery.pagination.js"></script>
 
-  <script type="text/javascript">
-    $.post("../../../php/getActivityList.php", "", function(data) {
-      result = $.parseJSON(data);
-      str = "";
-      $.each(result, function(index, item) {
-        //在线
-        if (item.status == 1) {
-          //已结束
-          if (item.end == 1) {
-            item.status = "已结束";
-            str += "<tr>";
-          } else {
-            //进行中
-            //已开始
-            if (item.ready == 1) {
-              item.status = "进行中";
-              str += "<tr class='success'>";
-            } else {
-              item.status = "未开始";
-              str += "<tr class='warning'>";
-            }
-
-          }
-        } else {
-          //下线
-          item.status = "已下线";
-          str += "<tr class='danger'>";
-        }
-        str += "<td>" + item.act_name + "</td>";
-        str += "<td>" + item.start_time + "</td>";
-        str += "<td>" + item.end_time + "</td>";
-        str += "<td>" + item.status + "</td>";
-        str += "</tr>";
-      });
-      $("#list").html(str);
-      $("#tableList").trigger("update");
-    });
-    $(function() {
-      $("#tableList").tablesorter();
-    });
-  </script>
+  <!-- ajax分页获取数据 -->
+  <script src="../../../js/ajax/addActivity.js"></script>
 
 </body>
 
