@@ -17,7 +17,7 @@ $.post("../../../php/getActJoinList.php", "", function (data) {
       str += "<td>" + item.service_name + "</td>";
       str += "<td>" + item.is_vip + "</td>";
       str += "<td>" + "<a class='btn btn-success' href='../../../php/approveActJoin.php?id=" + item.id + "'>" + "通过" + "</a>";
-      str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/refuseActJoin.php?id=" + item.id + "' onclick='return del();' >" + "拒绝" + "</a>";
+      str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/refuseActJoin.php?id=" + item.id + "' onclick='return myConfirm(\"确定要拒绝该用户的申请吗？\");' >" + "拒绝" + "</a>";
       str += "</td>";
       str += "</tr>";
     });
@@ -33,19 +33,10 @@ $(function () {
   $("#tableList").tablesorter();
 });
 
-//自定义删除提示函数
-function del()
+//自定义提示函数
+function myConfirm(message)
 {
-    if(confirm("确定要拒绝吗？"))
-        return true;
-    else
-        return false;
-}
-
-//自定义一键通过提示函数
-function approve()
-{
-    if(confirm("确定要全部通过吗？"))
+    if(confirm(message))
         return true;
     else
         return false;

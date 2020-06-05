@@ -37,7 +37,7 @@ $.post("../../../php/getActivityList.php", "", function (data) {
       str += "<div style='float:left;'><p class='btn my-danger'>已下线</p> </div>";
     }
     str += "<div style='float:right;'>";
-    str += "<a class='btn btn-info' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a> &nbsp;<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "' onclick= 'return del();' >" + "删除" + "</a>";
+    str += "<a class='btn btn-info' href='addService.php?actId=" + item.act_id + "'>管理活动与服务包</a> &nbsp;<a class='btn btn-danger' href='../../../php/deleteActivity.php?actId=" + item.act_id + "' onclick= 'return myConfirm(\"确定要删除该活动吗？\");' >" + "删除" + "</a>";
     str += "</div> <div style='clear:both'></div></div></div></div>";
 
   });
@@ -145,10 +145,11 @@ $("#clickButton").click(function () {
   };
 });
 
-//自定义删除提示函数
-function del() {
-  if (confirm("确定要删除吗？"))
-    return true;
-  else
-    return false;
+//自定义提示函数
+function myConfirm(message)
+{
+    if(confirm(message))
+        return true;
+    else
+        return false;
 }

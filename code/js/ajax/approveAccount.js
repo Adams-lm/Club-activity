@@ -9,7 +9,7 @@ $.post("../../../php/getUser0List.php", "", function(data) {
         str += "<td>" + item.user_name + "</td>";
         str += "<td>" + item.gender + "</td>";
         str += "<td>" + "<a class='btn btn-success' href='../../../php/approveAccount.php?userId=" + item.user_id + "'>" + "通过" + "</a>";
-        str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/deleteAccount.php?userId=" + item.user_id + "' onclick= 'return del();'>" + "拒绝" + "</a>";
+        str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/deleteAccount.php?userId=" + item.user_id + "'onclick='return myConfirm(\"确定要拒绝该用户的申请吗？\");'>" + "拒绝" + "</a>";
         str += "</td>";
         str += "</tr>";
       });
@@ -24,19 +24,10 @@ $.post("../../../php/getUser0List.php", "", function(data) {
     $("#tableList").tablesorter();
   });
 
-//自定义一键通过提示函数
-function approve()
+//自定义提示函数
+function myConfirm(message)
 {
-    if(confirm("确定要全部通过吗？"))
-        return true;
-    else
-        return false;
-}
-
-//自定义删除提示函数
-function del()
-{
-    if(confirm("确定要拒绝吗？"))
+    if(confirm(message))
         return true;
     else
         return false;

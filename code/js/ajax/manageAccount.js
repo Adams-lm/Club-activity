@@ -19,8 +19,8 @@ $.post("../../../php/getUser1List.php", "", function (data) {
             str += "<td>" + item.gender + "</td>";
             str += "<td>" + item.is_vip + "</td>";
             str += "<td>" + item.status + "</td>";
-            str += "<td>" + "<a class='btn btn-info' href='../../../php/resetPassword.php?userId=" + item.user_id + "'>" + "重置密码" + "</a>";
-            str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/banAccount.php?userId=" + item.user_id + "'>" + "禁用" + "</a>";
+            str += "<td>" + "<a class='btn btn-info' href='../../../php/resetPassword.php?userId=" + item.user_id + "'onclick='return myConfirm(\"确定要重置该用户密码吗？\");'>" + "重置密码" + "</a>";
+            str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/banAccount.php?userId=" + item.user_id + "'onclick='return myConfirm(\"确定要禁用该用户\");'>" + "禁用" + "</a>";
             str += "</td>";
             str += "</tr>";
         } else {
@@ -32,8 +32,8 @@ $.post("../../../php/getUser1List.php", "", function (data) {
             str += "<td>" + item.gender + "</td>";
             str += "<td>" + item.is_vip + "</td>";
             str += "<td>" + item.status + "</td>";
-            str += "<td>" + "<a class='btn btn-info' href='../../../php/resetPassword.php?userId=" + item.user_id + "'>" + "重置密码" + "</a>";
-            str += "&nbsp" + "<a class='btn btn-warning' href='../../../php/banAccount.php?userId=" + item.user_id + "'>" + "解禁" + "</a>";
+            str += "<td>" + "<a class='btn btn-info' href='../../../php/resetPassword.php?userId=" + item.user_id + "'onclick='return myConfirm(\"确定要重置该用户密码吗？\");'>" + "重置密码" + "</a>";
+            str += "&nbsp" + "<a class='btn btn-warning' href='../../../php/banAccount.php?userId=" + item.user_id + "'onclick='return myConfirm(\"确定要解禁该用户吗？\");'>" + "解禁" + "</a>";
             str += "</td>";
             str += "</tr>";
         }
@@ -139,3 +139,12 @@ $("#clickButton").click(function () {
         $("#toggle").css("visibility", "visible");
     };
 });
+
+//自定义提示函数
+function myConfirm(message)
+{
+    if(confirm(message))
+        return true;
+    else
+        return false;
+}
