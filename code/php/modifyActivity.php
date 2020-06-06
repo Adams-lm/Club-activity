@@ -12,6 +12,17 @@
     $status=$_POST["status"];
     $signUp=$_POST["signUp"];
     $address=$_POST["address"];
+
+
+    if($actName==null)  page_redirect(0,"","活动名称不能为空！");
+    if($address==null)  page_redirect(0,"","活动地点不能为空！");
+    if($startTime==null)  page_redirect(0,"","活动开始时间不能为空！");
+    if($endTime==null)  page_redirect(0,"","活动结束时间不能为空！");
+    if($content==null)  page_redirect(0,"","活动内容不能为空！");
+
+    if($startTime>=$endTime) page_redirect(0,"","开始时间大等于结束时间！");
+
+
     //若有更改图片    
     if(isset($_SESSION["image"])){
         $image=$_SESSION["image"];
@@ -24,7 +35,7 @@
             page_redirect(1,"../pages/admin/activityManagement/manageActInfo.php","活动信息修改成功!");
         }
         else{
-            page_redirect(1,"","活动信息修改失败!");   
+            page_redirect(0,"","活动信息修改失败!");   
         }
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
@@ -39,7 +50,7 @@
             page_redirect(1,"../pages/admin/activityManagement/manageActInfo.php","活动信息修改成功!");
         }
         else{
-            page_redirect(1,"","没有任何修改!");   
+            page_redirect(0,"","没有任何修改!");   
         }
         mysqli_stmt_close($stmt);
         mysqli_close($conn);        

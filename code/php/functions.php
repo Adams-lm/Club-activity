@@ -14,6 +14,7 @@ function page_redirect($category,$url,$info){
 function showAlert($str){
     echo "<script>";
     echo "alert('".$str."');";
+    echo "return false;";
     echo "</script>";
 }
 function pageLocator($path){
