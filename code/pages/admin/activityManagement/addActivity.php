@@ -85,11 +85,10 @@
               </div>
             </div>
             <div class="form-group">
-                        <label for="address" class="col-md-3 control-label ">活动地点</label>
-                        <div class="col-md-7 case">
-                            
-                            <div class="bMap" id='case1'></div>
-                        </div>
+              <label for="address" class="col-md-3 control-label ">活动地点</label>
+              <div class="col-md-7 case">
+                <div class="bMap" id='case1'></div>
+              </div>
             </div>
             <div class="form-group">
               <label for="startTime" class="col-md-3 control-label">开始时间</label>
@@ -144,25 +143,24 @@
   <!-- JavaScript -->
   <script src="../../../js/jquery-3.4.1.min.js"></script>
   <script src="../../../js/bootstrap.js"></script>
-
   <!-- Page Specific Plugins -->
   <script src="../../../js/raphael-min.js"></script>
-
   <!-- tablesort -->
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
   <!-- 分页 -->
   <script src="../../../js/jquery.pagination.js"></script>
-
-  <!-- ajax分页获取数据 -->
+  <!-- 相关js -->
   <script src="../../../js/ajax/addActivity.js"></script>
-
+  <!-- 百度地图 -->
   <script src="http://api.map.baidu.com/api?v=2.0&ak=eVK8IDtMhGYOyR0mMpAQjYaNtHAnTwzQ"></script>
-    <script src="../../../js/map/map.jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            $("#case1").bMap({name:"address"});
-	    })
-    </script>
+  <script src="../../../js/map/map.jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $("#case1").bMap({
+        name: "address"
+      });
+    })
+  </script>
 </body>
 
 </html>

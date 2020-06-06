@@ -69,17 +69,13 @@
   <!-- JavaScript -->
   <script src="../../../js/jquery-3.4.1.min.js"></script>
   <script src="../../../js/bootstrap.js"></script>
-
   <!-- Page Specific Plugins -->
   <script src="../../../js/raphael-min.js"></script>
-
   <!-- tablesort -->
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
-
   <!-- 分页 -->
   <script src="../../../js/jquery.pagination.js"></script>
-
-  <!-- ajax获取活动报名列表 -->
+  <!-- 相关js -->
   <script src="../../../js/ajax/approveActJoin.js"></script>
 </body>
 

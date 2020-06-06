@@ -254,14 +254,11 @@
   <!-- JavaScript -->
   <script src="../../../js/jquery-3.4.1.min.js"></script>
   <script src="../../../js/bootstrap.js"></script>
-
   <!-- Page Specific Plugins -->
   <script src="../../../js/raphael-min.js"></script>
-
   <!-- tablesort -->
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
-
-  <!-- ajax获取服务包数据 -->
+  <!-- 相关js -->
   <script src="../../../js/ajax/addService.js"></script>
 </body>
 

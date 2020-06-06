@@ -1,3 +1,4 @@
+//ajax+动态获取活动参加报名用户
 var pageIndex = 1;    //页面索引初始值   
 var pageSize = 5;     //每页显示条数初始化，修改显示条数，修改这里即可   
 var pageCount = 30;   //总的记录数，随便赋个初值好了，后面会重新赋值的 
@@ -51,16 +52,15 @@ function InitTable(pageIndex) {
 
       if (data != "[]") {//如果数据不为空
         $.each(data, function () {
-
           if (this['is_vip'] == "VIP会员")
-            str += "<tr class='success'>";
+            str += "<tr class='success'>";//会员绿色样式
           else
             str += "<tr>";
 
           str += "<td>" + this['user_name'] + "</td>";
           str += "<td>" + this['account'] + "</td>";
           str += "<td>" + this['act_name'] + "</td>";
-          if (this['service_name'] == null)
+          if (this['service_name'] == null)//如没买服务包显示无
             this['service_name'] = "无";
           str += "<td>" + this['service_name'] + "</td>";
           str += "<td>" + this['is_vip'] + "</td>";

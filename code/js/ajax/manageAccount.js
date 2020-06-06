@@ -1,4 +1,4 @@
-//获取用户列表
+//ajax+分页动态获取获取用户列表
 var pageIndex = 1;    //页面索引初始值   
 var pageSize = 5;     //每页显示条数初始化，修改显示条数，修改这里即可   
 var pageCount = 30;   //总的记录数，随便赋个初值好了，后面会重新赋值的 
@@ -51,41 +51,40 @@ function InitTable(pageIndex) {
             var str = "";
             $.each(data, function () {
 
-                    if (this['image'] == null) this['image'] = "";
-                    if (this['is_vip'] == null) this['is_vip'] = "";
-                    if (this['is_vip'] == 1) this['is_vip'] = "VIP会员";
-                    else this['is_vip'] = "普通用户";
-                    if (this['status'] == 1) {
-                        this['status'] = "正常";
-                        if (this['is_vip'] == "VIP会员")
-                            str += "<tr class='success'>";
-                        else
-                            str += "<tr>";
-                        str += "<td>" + "<img src='" + this['image'] + "' width='50' height='50' alt=''>" + "</td>"
-                        str += "<td>" + this['account'] + "</td>";
-                        str += "<td>" + this['user_name'] + "</td>";
-                        str += "<td>" + this['gender'] + "</td>";
-                        str += "<td>" + this['is_vip'] + "</td>";
-                        str += "<td>" + this['status'] + "</td>";
-                        str += "<td>" + "<a class='btn btn-info' href='../../../php/resetPassword.php?userId=" + this['user_id'] + "'onclick='return myConfirm(\"确定要重置该用户密码吗？\");'>" + "重置密码" + "</a>";
-                        str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/banAccount.php?userId=" + this['user_id'] + "'onclick='return myConfirm(\"确定要禁用该用户\");'>" + "禁用" + "</a>";
-                        str += "</td>";
-                        str += "</tr>";
-                    } else {
-                        this['status'] = "禁用中";
-                        str += "<tr class='danger'>";
-                        str += "<td>" + "<img src='" + this['image'] + "' width='50' height='50' alt=''>" + "</td>"
-                        str += "<td>" + this['account'] + "</td>";
-                        str += "<td>" + this['user_name'] + "</td>";
-                        str += "<td>" + this['gender'] + "</td>";
-                        str += "<td>" + this['is_vip'] + "</td>";
-                        str += "<td>" + this['status'] + "</td>";
-                        str += "<td>" + "<a class='btn btn-info' href='../../../php/resetPassword.php?userId=" + this['user_id'] + "'onclick='return myConfirm(\"确定要重置该用户密码吗？\");'>" + "重置密码" + "</a>";
-                        str += "&nbsp" + "<a class='btn btn-warning' href='../../../php/banAccount.php?userId=" + this['user_id'] + "'onclick='return myConfirm(\"确定要解禁该用户吗？\");'>" + "解禁" + "</a>";
-                        str += "</td>";
-                        str += "</tr>";
-                    }
-                });
+                if (this['image'] == null) this['image'] = "";
+                if (this['is_vip'] == 1) this['is_vip'] = "VIP会员";
+                else this['is_vip'] = "普通用户";
+                if (this['status'] == 1) {//正常状态下的用户
+                    this['status'] = "正常";
+                    if (this['is_vip'] == "VIP会员")
+                        str += "<tr class='success'>";//会员绿色标识
+                    else
+                        str += "<tr>";
+                    str += "<td>" + "<img src='" + this['image'] + "' width='50' height='50' alt=''>" + "</td>"
+                    str += "<td>" + this['account'] + "</td>";
+                    str += "<td>" + this['user_name'] + "</td>";
+                    str += "<td>" + this['gender'] + "</td>";
+                    str += "<td>" + this['is_vip'] + "</td>";
+                    str += "<td>" + this['status'] + "</td>";
+                    str += "<td>" + "<a class='btn btn-info' href='../../../php/resetPassword.php?userId=" + this['user_id'] + "'onclick='return myConfirm(\"确定要重置该用户密码吗？\");'>" + "重置密码" + "</a>";
+                    str += "&nbsp" + "<a class='btn btn-danger' href='../../../php/banAccount.php?userId=" + this['user_id'] + "'onclick='return myConfirm(\"确定要禁用该用户\");'>" + "禁用" + "</a>";
+                    str += "</td>";
+                    str += "</tr>";
+                } else {//禁用中红色标识
+                    this['status'] = "禁用中";
+                    str += "<tr class='danger'>";
+                    str += "<td>" + "<img src='" + this['image'] + "' width='50' height='50' alt=''>" + "</td>"
+                    str += "<td>" + this['account'] + "</td>";
+                    str += "<td>" + this['user_name'] + "</td>";
+                    str += "<td>" + this['gender'] + "</td>";
+                    str += "<td>" + this['is_vip'] + "</td>";
+                    str += "<td>" + this['status'] + "</td>";
+                    str += "<td>" + "<a class='btn btn-info' href='../../../php/resetPassword.php?userId=" + this['user_id'] + "'onclick='return myConfirm(\"确定要重置该用户密码吗？\");'>" + "重置密码" + "</a>";
+                    str += "&nbsp" + "<a class='btn btn-warning' href='../../../php/banAccount.php?userId=" + this['user_id'] + "'onclick='return myConfirm(\"确定要解禁该用户吗？\");'>" + "解禁" + "</a>";
+                    str += "</td>";
+                    str += "</tr>";
+                }
+            });
             $("#list").html(str);//写入页面
             $("#tableList").trigger("update");
         },
@@ -195,9 +194,8 @@ $("#clickButton").click(function () {
 });
 
 //自定义提示函数
-function myConfirm(message)
-{
-    if(confirm(message))
+function myConfirm(message) {
+    if (confirm(message))
         return true;
     else
         return false;
