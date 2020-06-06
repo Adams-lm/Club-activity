@@ -105,6 +105,12 @@
             </div>
           </div>
           <div class="form-group">
+            <label for="address" class="col-md-3 control-label ">活动地点</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" id="address" name="address" value="<?php echo $row['address']; ?>">
+            </div>
+          </div>
+          <div class="form-group">
             <label for="startTime" class="col-md-3 control-label">开始时间</label>
             <div class="col-md-7">
               <input type="datetime-local" class="form-control" id="startTime" name="startTime" value="<?php echo $row['start_time']; ?>">

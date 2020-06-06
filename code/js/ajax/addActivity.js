@@ -4,7 +4,7 @@ var pageCount = 30;   //总的记录数，随便赋个初值好了，后面会�
 $(document).ready(function () {
     // 得到要显示的总的记录数
     $.ajax({
-        url: '../../../php/connectDB.php',
+        url: '../../../php/pageAddAct.php',
         async: false,  // 取消异步，因为只有先得到总记录数，才能计算实际需要多少页
         type: 'POST',
         dataType: 'json',
@@ -42,7 +42,7 @@ function pageCallback(index, jq) {
 function InitTable(pageIndex) {
     $.ajax({
         type: "POST",
-        url: "../../../php/connectDB.php",
+        url: "../../../php/pageAddAct.php",
         dataType: "json",
         //提交两个参数：pageIndex(页面索引)，pageSize(显示条数)
         data: { index: pageIndex, size: pageSize },

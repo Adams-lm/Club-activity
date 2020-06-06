@@ -1,0 +1,4 @@
+.bMap{position: relative;}
+.bMap .map-warp{position: absolute;left:0;width:100%;height:400px;top:34px;display: none;}
+.bMap input{width:100%;height:30px;line-height: 30px;border:1px solid #d7d7d7;}
+.tangram-suggestion-main{z-index: 9999}

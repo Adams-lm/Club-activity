@@ -37,6 +37,13 @@
   <!-- 活动列表 -->
   <div id="list"></div>
 
+      <!-- 占行清除浮动 -->
+      <div class="row bottom"></div>
+    
+  <!-- 分页 -->
+  <div id="pager" class="quotes"></div>
+
+
   <!-- echart显示活动报名情况 -->
   <div class="col-md-12 ">
     <button class="btn btn-primary right" id="clickButton">
@@ -46,7 +53,9 @@
   <!-- 占行清除浮动 -->
   <div class="row bottom"></div>
 
-  <!-- 显示echart -->
+
+
+  <!-- echart -->
   <div class="col-md-12 invisible" id="toggle">
     <!-- 这里直接用toggle控制display有bug 图表无法显示 用invisible代替 -->
     <div id="mychart" class="chart"></div>
@@ -54,7 +63,7 @@
 
   <!-- 模拟点击按钮 -->
   <div class="row" style="display:none">
-    <button type="button" class="btn btn-primary right" data-toggle="modal" data-target=".bs-example-modal-md" id="test">查看活动情况
+    <button type="button" class="btn btn-primary right" data-toggle="modal" data-target=".bs-example-modal-md" id="test">
     </button>
   </div>
 
@@ -113,6 +122,10 @@
   <!-- echart -->
   <script src="../../../js/echart/echarts-en.min.js"></script>
   <script src="../../../js/echart/macarons.js"></script>
+
+  
+  <!-- 分页 -->
+  <script src="../../../js/jquery.pagination.js"></script>
 
   <!-- ajax 活动列表 图表显示 点击显示报名情况 -->
   <script src="../../../js/ajax/manageActInfo.js"></script>

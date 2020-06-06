@@ -58,6 +58,9 @@
     <a class="btn my-success"></a>&nbsp;VIP会员&nbsp;
   </div>
 
+  <!-- 分页 -->
+  <div id="pager" class="quotes"></div>
+
   <!-- 一键通过 -->
   <div class="col-md-12">
     <a href="../../../php/approveAllActJoin.php" class="btn btn-primary right" onclick='return myConfirm("确定要全部通过申请吗");'>一键通过</a>
@@ -72,6 +75,9 @@
 
   <!-- tablesort -->
   <script src="../../../js/tablesorter/jquery.tablesorter.js"></script>
+
+  <!-- 分页 -->
+  <script src="../../../js/jquery.pagination.js"></script>
 
   <!-- ajax获取活动报名列表 -->
   <script src="../../../js/ajax/approveActJoin.js"></script>

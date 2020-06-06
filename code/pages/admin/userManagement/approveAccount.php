@@ -54,6 +54,9 @@
     </div>
   </div>
 
+  <!-- 分页 -->
+  <div id="pager" class="quotes"></div>
+
   <!-- 全部通过 -->
   <div class="col-md-12 " id="approve">
     <a href="../../../php/approveAllAccount.php" class="btn btn-primary right" onclick="return myConfirm('确定要通过所有用户的申请吗？');" >一键通过</a>

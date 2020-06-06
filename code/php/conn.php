@@ -2,7 +2,7 @@
 $user = 'root';
 $pwd = '123456';
 $db = 'club_activity';
-$host = 'localhost';
+$host = '127.0.0.1';
 $port = 3306;
 $conn = mysqli_init();
 $success = mysqli_real_connect(

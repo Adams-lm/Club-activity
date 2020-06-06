@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="../../../css/mystyle_index.css">
   <!-- lm写的 -->
   <link rel="stylesheet" href="../../../css/mystyle_admin.css">
+  <!-- map -->
+  <link rel="stylesheet" href="../../../css/map.css">
 </head>
 
 <body>
@@ -81,6 +83,13 @@
               <div class="col-md-7">
                 <input type="text" class="form-control" id="actName" name="actName" placeholder="请输入活动名称">
               </div>
+            </div>
+            <div class="form-group">
+                        <label for="address" class="col-md-3 control-label ">活动地点</label>
+                        <div class="col-md-7 case">
+                            
+                            <div class="bMap" id='case1'></div>
+                        </div>
             </div>
             <div class="form-group">
               <label for="startTime" class="col-md-3 control-label">开始时间</label>
@@ -147,6 +156,13 @@
   <!-- ajax分页获取数据 -->
   <script src="../../../js/ajax/addActivity.js"></script>
 
+  <script src="http://api.map.baidu.com/api?v=2.0&ak=eVK8IDtMhGYOyR0mMpAQjYaNtHAnTwzQ"></script>
+    <script src="../../../js/map/map.jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#case1").bMap({name:"address"});
+	    })
+    </script>
 </body>
 
 </html>

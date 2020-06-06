@@ -61,6 +61,9 @@
     <a class="btn my-danger"></a>&nbsp;禁用中
   </div>
 
+  <!-- 分页 -->
+  <div id="pager" class="quotes"></div>
+
   <!-- echart显示社团成员情况 -->
   <div class="col-md-12 ">
     <button class="btn btn-primary right" id="clickButton">
