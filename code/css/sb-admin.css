@@ -85,35 +85,35 @@ table.tablesorter thead tr th:hover {
 
 /* 上导航颜色 */
 .navbar-inverse{
-  background-color: #3D485D;
+  background-color: #325972;
 }
 
 /* 标题brand颜色 */
 .navbar-inverse .navbar-brand {
-  color: #9d9d9d;
+  color: #fff;
 }
 
 /* 下拉彩蛋 选定后的颜色 */
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-  color: #333;
+  color:#fff;
   background-color: #4c6680;
 }
 
 /* 菜单颜色 */
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+  color:  #fff ;
 }
 /* 下拉选项选定后的颜色 */
 .side-nav>li.dropdown>ul.dropdown-menu>li>a:hover,
 .side-nav>li.dropdown>ul.dropdown-menu>li>a.active,
 .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
-color: #fff;
-background-color: #4c6680;
+color: #FDD268;
+background-color:  #4c6680;
 }
 
 /* 下拉菜单默认颜色 */
 .side-nav>li.dropdown>ul.dropdown-menu>li>a {
-	color: #999999;
+	color: #fff;
   }
 
 /* Edit Below to Customize Widths > 768px */
