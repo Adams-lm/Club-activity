@@ -1,7 +1,7 @@
 <?php
 $user = 'root';
 $pwd = '123456';
-$db = 'club_activity';
+$db = 'zhou2db56';
 $host = '127.0.0.1';
 $port = 3306;
 $conn = mysqli_init();
