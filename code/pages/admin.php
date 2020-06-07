@@ -38,8 +38,8 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-ex1-collapse" id="navbar" style="background-color:#001529">      <!-- 顶部颜色 -->
-        <ul class="nav navbar-nav side-nav" style="background-color:#001529"> <!-- 侧边颜色 -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse" id="navbar" style="background-color:#3D485D">      <!-- 顶部颜色 -->
+        <ul class="nav navbar-nav side-nav" style="background-color:#3D485D"> <!-- 侧边颜色 -->
 
           <li><a href="admin.php" style="font-size: 1.5rem;"><i class="fa fa-dashboard"></i> 首 页</a></li>
 
