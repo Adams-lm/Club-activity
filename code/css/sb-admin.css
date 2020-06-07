@@ -83,6 +83,39 @@ table.tablesorter thead tr th:hover {
   height: 100%;
 }
 
+/* 上导航颜色 */
+.navbar-inverse{
+  background-color: #3D485D;
+}
+
+/* 标题brand颜色 */
+.navbar-inverse .navbar-brand {
+  color: #9d9d9d;
+}
+
+/* 下拉彩蛋 选定后的颜色 */
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  color: #333;
+  background-color: #4c6680;
+}
+
+/* 菜单颜色 */
+.navbar-inverse .navbar-nav > li > a {
+  color: #9d9d9d;
+}
+/* 下拉选项选定后的颜色 */
+.side-nav>li.dropdown>ul.dropdown-menu>li>a:hover,
+.side-nav>li.dropdown>ul.dropdown-menu>li>a.active,
+.side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
+color: #fff;
+background-color: #4c6680;
+}
+
+/* 下拉菜单默认颜色 */
+.side-nav>li.dropdown>ul.dropdown-menu>li>a {
+	color: #999999;
+  }
+
 /* Edit Below to Customize Widths > 768px */
 @media (min-width:768px) {
 
@@ -107,9 +140,10 @@ table.tablesorter thead tr th:hover {
 	height: 100%;
 	border-radius: 0;
 	border: none;
-	background-color: #222222;
+	/* background-color: #4c6680; */
 	overflow-y: auto;
   }
+  
 
   /* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
 
@@ -126,25 +160,18 @@ table.tablesorter thead tr th:hover {
   }
 
   .side-nav>li.dropdown>ul.dropdown-menu>li>a {
-	color: #999999;
+	/* color: #999999; */
 	padding: 15px 15px 15px 25px;
   }
 
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a:hover,
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a.active,
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
-	color: #fff;
-	background-color: #080808;
-  }
+
 
   .side-nav>li>a {
 	width: 225px;
   }
 
-  .navbar-inverse .navbar-nav>li>a:hover,
-  .navbar-inverse .navbar-nav>li>a:focus {
-	background-color: #080808;
-  }
+
+
 
   /* Nav Messages */
 
