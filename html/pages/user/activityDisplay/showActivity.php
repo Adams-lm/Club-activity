@@ -13,7 +13,15 @@
   <link href="../../../css/bootstrap.css" rel="stylesheet">
   <!-- sddr写的 -->
   <link rel="stylesheet" href="../../../css/showActivity.css">
+
   <style>
+    .carousel-inner>.item>img,
+    .carousel-inner>.item>a>img {
+      line-height: 1;
+      width: 100%;
+      height: 415px;
+    }
+
     .img_three img {
       width: 100%;
       height: 120px;
@@ -25,6 +33,12 @@
     }
 
     @media all and (max-width:768px) {
+      .carousel-inner>.item>img,
+    .carousel-inner>.item>a>img {
+      line-height: 1;
+      width: 100%;
+      height: 300px;
+    }
       .img_three img {
         width: 100%;
         height: 70px;
