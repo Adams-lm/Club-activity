@@ -1,0 +1,83 @@
+body{
+  margin-top:0;
+}
+.activity_join{
+  border:1px solid #999;
+  border-radius:5px;
+  margin:30px;
+}
+
+p{
+  /* height:100px; */
+  display:-webkit-box;
+  /* 控制p段落行数 */
+  -webkit-line-clamp:3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  word-break:break-all;
+  line-height: 20px;
+  /* white-space:nowrap; */
+}
+p:first-letter{
+  font-size:1.5em;
+}
+h3,h4,h2{
+  margin:10px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  word-break:break-all;
+}
+h3,h2{
+  font-size:16px;
+  font-weight:bold;
+}
+img{
+  border-radius:5px;
+}
+
+.img_three{
+  margin-top:20px;
+}
+
+.mycard{
+  margin:20px;
+  padding:10px 10px 15px 10px;
+  border-radius:10px;
+  background-color:rgba(255,255,255,0.9);
+  box-shadow: 2px 2px 5px 3px rgb(212, 212, 212);
+}
+
+.one_style{
+  margin-top:20px;
+}
+.one_style:last-child{
+  margin-bottom:20px;
+}
+/* 活动标签 */
+.act_label,.act_label_three{
+  /* padding:0 15px; */
+  width:100%;
+  height:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.act_label_three{
+  padding:0 15px;
+}
+/* 状态标签 */
+.btn_status{
+  width:auto;
+}
+@media all and (max-width:768px){
+  .mycard{
+    margin:20px 0;
+    padding:10px 10px 15px 10px;
+    border-radius:10px;
+    background-color:rgba(255,255,255,0.9);
+    box-shadow: 2px 2px 5px 3px rgb(212, 212, 212);
+  }
+}

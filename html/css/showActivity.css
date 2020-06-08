@@ -1,0 +1,147 @@
+html,body{overflow:hidden;overflow-y:auto;}
+body{
+  cursor: url('cur.cur'), default;
+}
+p{
+  /* height:100px; */
+  display:-webkit-box;
+  /* 控制p段落行数 */
+  -webkit-line-clamp:4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  word-break:break-all;
+  line-height: 20px;
+  /* white-space:nowrap; */
+}
+p:first-letter{
+  font-size:1.5em;
+}
+h3,h4,h2{
+  margin:10px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  word-break:break-all;
+}
+h3,h2{
+  font-size:16px;
+  font-weight:bold;
+}
+img{
+  border-radius:5px;
+}
+/* 轮播图图片 */
+.car_pic{
+  margin:0 auto;
+  width:600px;
+  height:auto;
+}
+.img_three{
+  margin-top:20px;
+}
+/* 音频 */
+.my_audio{
+  display:none;
+}
+/* 悬浮图标 */
+#start_music,#cust_service{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  width:50px;
+  height:50px;
+  border-radius:100px;
+  background-color:rgba(222,222,222,0.9);
+  box-shadow: 2px 2px 5px 3px rgb(212, 212, 212);
+}
+#cust_service{
+  margin:10px 0;
+}
+/* icon */
+.icon{
+  cursor:pointer;
+  width: 2em;
+  height: 2em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.icon:hover,.btn-reply:hover{
+  color:#0F99E8;
+}
+
+.mycard{
+  position:relative;
+  margin-bottom:20px;
+  padding:10px 10px 15px 10px;
+  border-radius:10px;
+  background-color:rgba(255,255,255,0.9);
+  box-shadow: 2px 2px 5px 3px rgb(212, 212, 212);
+}
+
+.one_style{
+  margin-top:20px;
+}
+.one_style:last-child{
+  margin-bottom:20px;
+}
+/* 活动标签 */
+.act_label,.act_label_three{
+  /* padding:0 15px; */
+  width:100%;
+  height:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.act_label_three{
+  padding:0 15px;
+}
+/* 状态标签 */
+.btn_status{
+  width:auto;
+}
+
+/* 页脚 */
+.well{
+  margin-top:30px;
+  margin-bottom:0px;
+  text-align:center;
+}
+/* 页脚 */
+.well h3{
+  margin:10px;
+}
+#form_actid{
+  display:none;
+}
+
+@media all and (max-width:768px){
+  h3{
+    font-size:16px;
+  }
+  p{
+    font-size:12px;
+    line-height:1.2em;
+    -webkit-line-clamp:3;
+  }
+  /* 轮播图 */
+  #carousel{
+    margin-bottom:10px;
+  }
+  .img_three{
+    margin:0;
+  }
+  .one_style{
+    padding:15px;
+    border-radius:10px;
+    background-color:rgba(255,255,255,0.9);
+    box-shadow: 2px 2px 5px 3px rgb(212, 212, 212);
+  }
+  .act_label_three{
+    padding:0;
+  }
+}

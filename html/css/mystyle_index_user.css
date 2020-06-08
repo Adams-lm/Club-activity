@@ -1,0 +1,82 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    
+overflow: auto;
+}
+iframe{
+    border: none; 
+    overflow:hidden;  
+    width: 100%;
+    height: 100%;
+
+}
+::-webkit-scrollbar{
+    width: 0;
+    height:0;
+    /* background: none; */
+    }
+/* buy-yip */
+.card{
+    border-radius:10px;
+    box-shadow: 5px 5px 9px 2px rgb(212, 212, 212);
+    position: relative;
+    top:40px;
+    left:40px;
+    margin-bottom: 80px;
+}
+
+.card_header{
+    margin:0 0 20px 20px;
+    padding:20px 0;    
+    /* border-bottom:1px solid #999;     */
+    
+}
+
+.card_body,.card_body_recommend{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index:2;
+    margin:5px 0 20px 20px;
+    line-height: 25px;
+    color: #FFAD41;
+    font-size: 20px;
+    font-weight: bold;
+}
+.card_body_recommend{
+    color: rgb(255, 78, 65);
+}
+.alpha_shadow{
+
+    z-index:-1;
+    /* //优先级 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:150px;
+    height:150px;
+    border-radius:100px;
+    background-color: rgba(212, 212, 212, 0.6); 
+    box-shadow: 5px 5px 9px 2px rgb(212, 212, 212);   
+    position:absolute;
+}
+
+.alpha_shadow h3{
+    line-height: 5px;
+    color:rgb(41, 75, 90);
+    font-weight: bolder;
+}
+
+.alpha_shadow h3:hover{
+    color: #FFAD41;
+}
+
+#bkg{
+    z-index:99;
+    position:fixed;
+    width:100%;
+    height:95%;
+    background-color:rgba(44, 44, 44, 0.6);
+  }

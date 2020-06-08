@@ -1,0 +1,53 @@
+html,body{overflow:hidden;overflow-y:auto;}
+.card{
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #eee;
+  margin: 30px 15px 15px 30px;
+  padding:20px;
+}
+
+.item{
+  margin:5px 0;
+}
+iframe{
+  height:45px;
+  border:1px solid #EEE;
+  border-radius:10px;
+}
+#image{
+  border-radius:80px;
+  border:1px solid #DDD;
+  margin:15px 0;
+  width:90px;
+  height:90px;
+}
+.btn_form{
+  display:flex;
+  justify-content:flex-end;
+  margin:10px 0 15px;
+}
+.btn_form button{
+  margin-left:16px;
+}
+.invalid{
+  border:2px solid rgb(204, 55, 90);
+}
+.valid{
+  border:2px solid rgb(86, 190, 142);
+}
+@media all and (max-width:768px){
+  .card{
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #eee;
+    margin:20px 0;
+    padding:0px;
+  }
+  .item{
+    margin:0;
+  }
+  label.item{
+    margin:5px 0;
+  }
+}
